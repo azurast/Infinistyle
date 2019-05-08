@@ -37,7 +37,10 @@
         <div class="col">
           <div class="card shadow">
             <div class="card-header border-0">
-              <h3 class="mb-0">Goods List</h3>
+              <div class="row">
+                <h3 class="mb-0 col-md-10 title">Goods List</h3>
+                <button class="btn btn-success add col-md-2" data-toggle="modal" data-target="#editModal"><i class="fas fa-plus"></i> Add Item</button>
+              </div>
             </div>
             <div class="table-responsive">
               <table class="table align-items-center table-flush">
@@ -65,52 +68,14 @@
                       <img alt="Image placeholder" src="<?= base_url('argon/assets/img/'); ?>ikeachair.jpg">
                     </a>
                     </td>
-                    <td class="text-right">
-                        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#editModal">
-                            Edit
-                        </button>
-                          <!-- Modal Edit -->
-                        <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
-                          <div class="modal-dialog modal-dialog-centered" role="document">
-                            <div class="modal-content">
-                              <div class="modal-header">
-                                <h5 class="modal-title" id="editModalLabel">Edit</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                  <span aria-hidden="true">&times;</span>
-                                </button>
-                              </div>
-                              <div class="modal-body">
-                                ...
-                              </div>
-                              <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-success" onclick="window.location = '<?php echo base_url('admin/products/update_product')?>'">Save changes</button>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        </div>
-                        <!-- Modal Delete -->
-                        <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
-                          <div class="modal-dialog modal-dialog-centered" role="document">
-                            <div class="modal-content">
-                              <div class="modal-header">
-                                <h5 class="modal-title" id="deleteModalLabel">Delete</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                  <span aria-hidden="true">&times;</span>
-                                </button>
-                              </div>
-                              <div class="modal-body">
-                                ...
-                              </div>
-                              <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-success">Save changes</button>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        </div>
+                    <td class="text-left">
+                      <button type="button" class="btn btn-info edit" data-edit="<?= $items[$i]["productID"]; ?>" data-toggle="modal" data-target="#editModal">
+                          Edit
+                      </button>
+                      
+                      </div>
+                      
+                      </div>
                     </td>
                   </tr>
                   <?php } ?>
@@ -172,3 +137,92 @@
         </div>
       </footer>
     </div>
+
+  <!-- Modal Edit -->
+  <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="editModalLabel">Edit</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <input type="hidden" id="productId" readonly>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="productName">Product Name</label>
+                <input type="text" class="form-control form-control-alternative" id="productName">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+              <label for="productPrice">Price</label>
+                <input type="text" id="productPrice" class="form-control form-control-alternative" />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md">
+              <div class="form-group">
+              <label for="productCategory">Category</label>
+                <input type="text" id="productCategory" class="form-control form-control-alternative" />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md">
+              <div class="form-group">
+              <label for="productStock">Stock</label>
+                <input type="text" id="productStock" class="form-control form-control-alternative" />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md">
+              <div class="form-group">
+                <label for="productDescription">Description</label>
+                <input type="textarea" id="productDescription" class="form-control form-control-alternative">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md">
+              <div class="form-group">
+                <label for="productImage">Image</label>
+                <img src="<?= base_url('argon/assets/img/'); ?>ikeachair.jpg" width="100" height="100" id="image">
+                <input type="file" id="productImage" class="form-control form-control-alternative">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-success change">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+   <!-- Modal Delete -->
+   <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="deleteModalLabel">Delete</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-success">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -37,7 +37,7 @@
         <div class="col">
           <div class="card shadow">
             <div class="card-header border-0">
-              <h3 class="mb-0">Customers List</h3>
+              <h3 class="mb-0 title">Customers List</h3>
             </div>
             <div class="table-responsive">
               <table class="table align-items-center table-flush">
@@ -65,54 +65,16 @@
                       <img alt="Image placeholder" src="<?= base_url('argon/assets/img/'); ?>customer.jpg">
                     </a>
                     </td>
-                    <td class="text-right">
-                        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#editModal">
+                    <td class="text-left">
+                        <button type="button" class="btn btn-info edit" data-edit="<?= $customer[$i]["customerID"]; ?>" data-toggle="modal" data-target="#editModal">
                             Edit
                         </button>
-                        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#deleteModal">
+                        <button type="button" class="btn btn-warning delete" data-delete="<?= $customer[$i]["customerID"]; ?>" data-toggle="modal" data-target="#deleteModal">
                             Delete
                         </button>
-                          <!-- Modal Edit -->
-                        <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
-                          <div class="modal-dialog modal-dialog-centered" role="document">
-                            <div class="modal-content">
-                              <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Edit</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                  <span aria-hidden="true">&times;</span>
-                                </button>
-                              </div>
-                              <div class="modal-body">
-                                ...
-                              </div>
-                              <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-success" onclick="window.location = '<?php echo base_url('admin/customers/update_customer')?>'">Save changes</button>
-                              </div>
-                            </div>
-                          </div>
+                         
                         </div>
-                        </div>
-                        <!-- Modal Delete -->
-                        <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
-                          <div class="modal-dialog modal-dialog-centered" role="document">
-                            <div class="modal-content">
-                              <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Delete</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                  <span aria-hidden="true">&times;</span>
-                                </button>
-                              </div>
-                              <div class="modal-body">
-                                ...
-                              </div>
-                              <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-success" onclick="window.location = '<?php echo base_url('admin/customers/delete_customer')?>'">Save changes</button>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
+                       
                         </div>
                     </td>
                   </tr>
@@ -175,3 +137,94 @@
         </div>
       </footer>
     </div>
+
+    <!-- Modal Edit -->
+    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Edit</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+            <input type="hidden" id="customerID" readonly>
+              <div class="row">
+                <div class="col-md">
+                  <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" class="form-control form-control-alternative" id="fullName">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md">
+                  <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control form-control-alternative" id="email">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md">
+                  <div class="form-group">
+                    <label for="address">Address</label>
+                    <input class="form-control form-control-alternative" id="address" type="textarea">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md">
+                  <div class="form-group">
+                    <label for="phone">Phone</label>
+                    <input class="form-control form-control-alternative" id="phone" type="textarea">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md">
+                  <div class="form-group">
+                  <label for="username">Username</label>
+                    <input type="text" id="username" class="form-control form-control-alternative" />
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md">
+                  <div class="form-group">
+                  <label for="password">Password</label>
+                    <input type="password" id="password" class="form-control form-control-alternative" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-success change">Save</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+       <!-- Modal Delete -->
+       <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Delete</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <input type="hidden" id="temp">
+                <h1>Delete It?</h1>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-success deletecnf">Save Changes</button>
+              </div>
+            </div>
+          </div>
+        </div>

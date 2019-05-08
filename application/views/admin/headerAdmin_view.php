@@ -62,7 +62,7 @@
         <!-- Navigation -->
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" href="<?= base_url('admin/');?>">
+            <a class="nav-link" href="<?= base_url('admin/dashboard');?>">
               <i class="ni ni-tv-2 text-primary"></i> Dashboard
             </a>
           </li>
