@@ -65,9 +65,6 @@
                         <button type="button" class="btn btn-info edit" data-edit="<?= $orders[$i]["orderID"]; ?>" data-toggle="modal" data-target="#editModal">
                             Edit
                         </button>
-                        <button class="btn btn-danger" type="button" data-toggle="collapse" data-target="#details<?= $orders[$i]["orderID"]; ?>" aria-expanded="false" aria-controls="details">
-                            Details
-                        </button>
                         <button type="button" class="btn btn-warning delete" data-delete="<?= $orders[$i]["orderID"]; ?>" data-toggle="modal" data-target="#deleteModal">
                             Delete
                         </button>

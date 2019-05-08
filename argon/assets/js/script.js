@@ -3,7 +3,7 @@ $(document).ready(function () {
     $(".add").on("click", function () {
         $(".modal-title").html("Add");
         $(".change").html("Add");
-        $("#productImage").hide();
+        $("#image").hide();
 
         $("#productId").val('');
         $("#productName").val('');
@@ -24,7 +24,7 @@ $(document).ready(function () {
 
         if (title == "Goods List") {
             $.ajax({
-                url: "http://localhost/Infinistyle/admin/admin/edit",
+                url: "http://localhost/Infinistyle/admin/edit",
                 method: "post",
                 data: {
                     q: "products",
@@ -40,13 +40,12 @@ $(document).ready(function () {
                     $("#productCategory").val(result.productCategory);
                     $("#productStock").val(result.productStock);
                     $("#productDescription").val(result.productDescription);
-                    $("#productImage").attr("src","http://localhost/Infinistyle/images/" + result.productImage);
                 }
             });
         }
         else if (title == "Customers List") {
             $.ajax({
-                url: "http://localhost/Infinistyle/admin/admin/edit",
+                url: "http://localhost/Infinistyle/admin/edit",
                 method: "post",
                 data: {
                     q: "customers",
@@ -68,7 +67,7 @@ $(document).ready(function () {
         }
         else if (title == "Transactions List") {
             $.ajax({
-                url: "http://localhost/Infinistyle/admin/admin/edit",
+                url: "http://localhost/Infinistyle/admin/edit",
                 method: "post",
                 dataType: "json",
                 data: {
@@ -91,7 +90,7 @@ $(document).ready(function () {
 
         let id = $(this).data('delete');
         $.ajax({
-            url: "http://localhost/Infinistyle/admin/admin/delete",
+            url: "http://localhost/Infinistyle/admin/delete",
             method: "post",
             data: { id: id },
             success: function (data) {
@@ -116,7 +115,7 @@ $(document).ready(function () {
             let text = $(this).text();
             if (text == 'Add') {
                 $.ajax({
-                    url: "http://localhost/Infinistyle/admin/admin/add_action",
+                    url: "http://localhost/Infinistyle/admin/add_action",
                     method: "post",
                     data: {
                         id: id,
@@ -138,7 +137,7 @@ $(document).ready(function () {
             }
             else if (text == 'Save') {
                 $.ajax({
-                    url: "http://localhost/Infinistyle/admin/admin/edit_action",
+                    url: "http://localhost/Infinistyle/admin/edit_action",
                     method: "post",
                     data: {
                         title: "products",
@@ -167,7 +166,7 @@ $(document).ready(function () {
             let password = $("#password").val();
 
             $.ajax({
-                url: "http://localhost/Infinistyle/admin/admin/edit_action",
+                url: "http://localhost/Infinistyle/admin/edit_action",
                 method: "post",
                 dataType: "json",
                 data: {
@@ -190,7 +189,7 @@ $(document).ready(function () {
             let id = $("#orderID").val();
             let status = $("#status").val();
             $.ajax({
-                url: "http://localhost/Infinistyle/admin/orders/edit_action",
+                url: "http://localhost/Infinistyle/admin/edit_action",
                 method: "post",
                 data: {
                     title: "orders",
@@ -212,7 +211,7 @@ $(document).ready(function () {
 
         if (title == "Goods List") {
             $.ajax({
-                url: "http://localhost/Infinistyle/admin/admin/delete_action",
+                url: "http://localhost/Infinistyle/admin/delete_action",
                 method: "post",
                 data: {
                     q: "products",
@@ -227,7 +226,7 @@ $(document).ready(function () {
         }
         else if (title == "Customers List") {
             $.ajax({
-                url: "http://localhost/Infinistyle/admin/admin/delete_action",
+                url: "http://localhost/Infinistyle/admin/delete_action",
                 method: "post",
                 data: {
                     q: "customers",
@@ -242,7 +241,7 @@ $(document).ready(function () {
         }
         else if (title == "Transactions List") {
             $.ajax({
-                url: "http://localhost/Infinistyle/admin/admin/delete_action",
+                url: "http://localhost/Infinistyle/admin/delete_action",
                 method: "post",
                 data: {
                     q: "orders",
