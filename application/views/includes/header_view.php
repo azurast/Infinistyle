@@ -1,6 +1,6 @@
-<body class="bg-secondary g-sidenav-show g-sidenav-pinned" data-gr-c-s-loaded="true">
+<body class="bg-default g-sidenav-show g-sidenav-pinned" data-gr-c-s-loaded="true">
     <!-- Navbar -->
-    <nav id="navbar-main" class="navbar navbar-horizontal navbar-transparent navbar-main navbar-expand-lg navbar-light bg-gradient-primary">
+    <nav id="navbar-main" class="navbar navbar-horizontal navbar-transparent navbar-main navbar-expand-lg navbar-light">
         <a class="navbar-brand" href="#">
             <img src="argon\assets\img\logo\Logo.png" width="150" height="50" alt="">
         </a>
@@ -18,22 +18,22 @@
     </nav>
     <ul class="nav justify-content-center mt-3 mb-3">
       <li class="nav-item">
-        <a class="nav-link active" href="#">Tops</a>
+        <a class="nav-link text-white" href="#">Tops</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Bottoms</a>
+        <a class="nav-link text-white" href="#">Bottoms</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Dresses</a>
+        <a class="nav-link text-white" href="#">Dresses</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Jumpsuits</a>
+        <a class="nav-link text-white" href="#">Jumpsuits</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Accessories</a>
+        <a class="nav-link text-white" href="#">Accessories</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Toys</a>
+        <a class="nav-link text-white" href="#">Toys</a>
       </li>
     </ul>
     <!-- Content -->

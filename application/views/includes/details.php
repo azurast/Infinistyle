@@ -15,7 +15,11 @@
     .card{
         border : none;
     }
+<<<<<<< HEAD:application/views/includes/shop/details.php
 
+=======
+	
+>>>>>>> update buat controller home:application/views/includes/details.php
 	.content{
 		margin-top:5%;
 		margin-bottom:5%;
