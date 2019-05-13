@@ -90,4 +90,11 @@ class Admin_model extends CI_Model {
         $this->db->where($param['where'],$param['id']);
         return $this->db->delete($param['table']);
     }
+
+    public function orderDetails(){
+        $sql = "SELECT orderID, productName, qty FROM orderdetails AS d, products AS p WHERE d.productID = p.productID order by orderID";
+        $result = $this->db->query($sql);
+
+        return $result->result_array();
+    }
 }

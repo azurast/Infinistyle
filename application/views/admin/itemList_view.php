@@ -64,18 +64,9 @@
                     <td><?= $items[$i]["productStock"]; ?></td>
                     <td>Rp <?= $items[$i]["productPrice"]; ?></td>
                     <td>
-                        <a href="#" class="avatar rounded-circle mr-3">
-                      <img alt="Image placeholder" src="<?= base_url('argon/assets/img/'); ?>ikeachair.jpg">
-                    </a>
-                    </td>
-                    <td class="text-left">
-                      <button type="button" class="btn btn-info edit" data-edit="<?= $items[$i]["productID"]; ?>" data-toggle="modal" data-target="#editModal">
-                          Edit
-                      </button>
-                      
-                      </div>
-                      
-                      </div>
+                      <a href="#" class="avatar rounded-circle mr-3">
+                        <img alt="Image placeholder" src="<?= base_url('argon/assets/img/'); ?>ikeachair.jpg">
+                      </a>
                     </td>
                     <td class="text-left">
                       <button type="button" class="btn btn-info edit" data-edit="<?= $items[$i]["productID"]; ?>" data-toggle="modal" data-target="#editModal">
