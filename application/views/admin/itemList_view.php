@@ -64,21 +64,37 @@
                     <td><?= $items[$i]["productStock"]; ?></td>
                     <td>Rp <?= $items[$i]["productPrice"]; ?></td>
                     <td>
-                        <a href="#" class="avatar rounded-circle mr-3">
-                      <img alt="Image placeholder" src="<?= base_url('argon/assets/img/'); ?>ikeachair.jpg">
-                    </a>
+                      <a href="#" class="avatar rounded-circle mr-3">
+                        <img alt="Image placeholder" src="<?= base_url('argon/assets/img/'); ?>ikeachair.jpg">
+                      </a>
                     </td>
                     <td class="text-left">
                       <button type="button" class="btn btn-info edit" data-edit="<?= $items[$i]["productID"]; ?>" data-toggle="modal" data-target="#editModal">
                           Edit
                       </button>
-                      
-                      </div>
-                      
-                      </div>
-                    </td>
-                  </tr>
-                  <?php } ?>
+                      <button class="btn btn-danger" type="button" data-toggle="collapse" data-target="#details<?= $items[$i]["productID"]; ?>" aria-expanded="false" aria-controls="details">
+                        Details
+                      </button>       
+                    </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="4" class="collapse" id="details<?= $items[$i]["productID"]; ?>">  
+                    <div class="card-body">
+                      <img alt="Image placeholder" src="<?= base_url('argon/assets/img/'); ?>ikeachair.jpg" width="120" height="120">
+                    </div>
+                  </td>
+                  <td colspan="3" class="collapse" id="details<?= $items[$i]["productID"]; ?>">
+                    <div class="card-body">
+                      <h3>Category : </h3>
+                      <p><?= $items[$i]["productCategory"];?></p>
+                      <h3>Description : </h3>
+                      <p><?= $items[$i]["productDescription"]; ?></p>
+                    </div>
+                  </td>
+                </tr>
+                <?php } ?>
                 </tbody>
               </table>
             </div>

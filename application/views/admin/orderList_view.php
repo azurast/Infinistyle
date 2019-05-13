@@ -48,7 +48,6 @@
                     <th scope="col">Status</th>
                     <th scope="col">Customer ID</th>
                     <th scope="col">Action</th>
-                    <th scope="col"></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -66,6 +65,9 @@
                         <button type="button" class="btn btn-info edit" data-edit="<?= $orders[$i]["orderID"]; ?>" data-toggle="modal" data-target="#editModal">
                             Edit
                         </button>
+                        <button class="btn btn-danger" type="button" data-toggle="collapse" data-target="#details<?= $orders[$i]["orderID"]; ?>" aria-expanded="false" aria-controls="details">
+                            Details
+                        </button>
                         <button type="button" class="btn btn-warning delete" data-delete="<?= $orders[$i]["orderID"]; ?>" data-toggle="modal" data-target="#deleteModal">
                             Delete
                         </button>
@@ -73,6 +75,26 @@
                         </div>
                         
                         </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="7" class="collapse" id="details<?= $orders[$i]["orderID"]; ?>">
+                      <table class="table table-striped">
+                        <thead>
+                          <th><h4>Orders</h4></th>
+                          <th><h4>Quantity</h4></th>
+                        </thead>
+                        <tbody>
+                          <?php foreach($orderDetails as $od) {?>
+                            <?php if($od["orderID"] == $orders[$i]["orderID"]) { ?>
+                              <tr>
+                                <td><?= $od["productName"]; ?></td>
+                                <td><?= $od["qty"]; ?></td>
+                              </tr>
+                            <?php } ?>
+                          <?php } ?>
+                        </tbody>
+                      </table>
                     </td>
                   </tr>
                   <?php } ?>

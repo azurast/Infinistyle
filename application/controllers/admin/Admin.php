@@ -33,10 +33,10 @@ class Admin extends CI_Controller {
 
     public function __construct(){
         parent::__construct();
+        $this->load->model('Admin_model');
     }
 
     public function index(){
-        $this->load->model('Admin_model');
         $data["title"] = "Dashboard";
         $this->load->view('admin/headerAdmin_view',$data);
         $this->load->view('admin/adminDashboard_view');
@@ -44,7 +44,6 @@ class Admin extends CI_Controller {
     }
 
     public function profile(){
-        $this->load->model('Admin_model');
         $data['title'] = "Admin Profile";
         $this->load->view('admin/headerAdmin_view', $data);
         $this->load->view('admin/adminProfile_view');
@@ -52,65 +51,105 @@ class Admin extends CI_Controller {
     }
 
     public function orders(){
-        $this->load->model('Order_model');
-        $data['title'] = "Order";
-        $data['orders'] = $this->Order_model->get_all_order();
+        $data['title'] = "Orders";
+        $data['orders'] = $this->Admin_model->get_order();
+        $data['orderDetails'] = $this->Admin_model->orderDetails();
         $this->load->view('admin/headerAdmin_view', $data);
         $this->load->view('admin/orderList_view', $data);
         $this->load->view('admin/footerAdmin_view');
-    }
+   }
     public function items(){
-        $this->load->model('Product_model');
-        $data['title'] = "Products";
-        $data['items'] = $this->Product_model->get_all_product();
+        $data['title'] = "Items";
+        $data['items'] = $this->Admin_model->get_item();
         $this->load->view('admin/headerAdmin_view', $data);
         $this->load->view('admin/itemList_view', $data);
         $this->load->view('admin/footerAdmin_view');
-    }
-
-    public function customers(){
-        $this->load->model('Customer_model');
+   }
+    
+   public function customers(){
         $data['title'] = "Customers";
-        $data['customer'] = $this->Customer_model->get_all_customer();
+        $data['customer'] = $this->Admin_model->get_customers();
         $this->load->view('admin/headerAdmin_view', $data);
         $this->load->view('admin/customerList_view', $data);
         $this->load->view('admin/footerAdmin_view');
-    }
+   }
 
-    public function edit($item){
-        //$data['edit'] = $this->Admin_model->clicked_item($item);
-        $this->load->view('admin/headerAdmin_view');
-        //$this->load->view('admin/editProduct_view', $data);
-        $this->load->view('admin/footerAdmin_view');
-    }
+   public function edit(){
 
-    public function add(){
-        $this->load->view('admin/headerAdmin_view');
-        //$this->load->view('admin/addProduct_view');
-        $this->load->view('admin/footerAdmin_view');
-    }
-
-    public function edit_action(){
-        $values = [
-            "ProductID" => $this->input->post('product_id'),
-            "ProductName" => $this->input->post('product_name'),
-            "UnitsInStock" => $this->input->post('stock'),
-            "UnitPrice" => $this->input->post('price')
+        $param = [
+            "table" => $_POST['q'],
+            "where" => $_POST['where'],
+            "id" => $_POST['id']
         ];
 
-        $this->Admin_model->update($values);
-        redirect("admin/items");
+        $data['result'] = $this->Admin_model->clicked($param);
+        echo json_encode($data['result']);
+   }
+
+   public function edit_action(){
+       if($_POST['title'] == "products"){
+           $values = [
+               "productID" => $_POST['id'],               
+               "productName" => $_POST['name'],
+               "productPrice" => $_POST['price'],
+               "productCategory" => $_POST['category'],
+               "productStock" => $_POST['stock'],
+               "productDescription" => $_POST['desc'],
+               "productImage" => $_POST['image']
+           ];
+       }
+       else if($_POST['title'] == "customers"){
+           $values = [
+               "customerID" => $_POST['customerID'],
+               "fullName" => $_POST['fullName'],
+               "email" => $_POST['email'],
+               "address" => $_POST['address'],
+               "phone" => $_POST['phone'],
+               "username" => $_POST['username'],
+               "password" => $_POST['password']
+           ];
+       }
+       else if($_POST['title'] == "orders"){
+           $values = [
+               "orderStatus" => $_POST['status'],
+               "orderID" => $_POST['orderID']
+            ];
+       }
+
+        $result = $this->Admin_model->update($values, $_POST['title']);
+        if($result == 1){
+            echo json_encode($values);
+        }
+   }
+
+    public function delete(){
+        echo $_POST['id'];
     }
 
-    public function add_action(){
-        $values = [
-            "ProductID" => '',
-            "ProductName" => $this->input->post('product_name'),
-            "UnitsInStock" => $this->input->post('stock'),
-            "UnitPrice" => $this->input->post('price')
+    public function delete_action(){
+        $param = [
+            "table" => $_POST['q'],
+            "where" => $_POST['where'],
+            "id" => $_POST['id']
         ];
 
-        $this->Admin_model->insert($values);
-        redirect("admin/items");
+        $query = $this->Admin_model->delete($param);
+
+        return $query;
     }
+
+   public function add_action(){
+       $values = [
+           "productID" => $_POST['id'],
+           "productName" => $_POST['name'],
+           "productDescription" => $_POST['desc'],
+           "productPrice" => $_POST['price'],
+           "productStock" => $_POST['stock'],
+           "productCategory" => $_POST['category'],
+           "productImage" => $_POST['image']
+       ];
+
+       $result = $this->Admin_model->insert($values);
+       echo $result;
+   }
 }
