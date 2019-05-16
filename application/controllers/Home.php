@@ -7,13 +7,14 @@ class Home extends CI_Controller{
         parent::__construct();
         $this->load->model('product_model');
     }
-        public function index(){
-            $data['result'] = $this->product_model->get_product();
-            $this->load->view('includes/css.php');
-            $this->load->view('includes/header_view.php');
-            $this->load->view('includes/content.php', $data);
-            $this->load->view('includes/footer_view.php');
-            $this->load->view('includes/js.php');
-        }
+    
+    public function index(){
+        $data['result'] = $this->product_model->get_product();
+        $this->load->view('includes/css.php');
+        $this->load->view('includes/header_view.php');
+        $this->load->view('includes/content.php', $data);
+        $this->load->view('includes/footer_view.php');
+        $this->load->view('includes/js.php');
     }
- ?>
+}
+?>
