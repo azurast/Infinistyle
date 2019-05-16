@@ -1,1 +1,1 @@
-<title><?= $title; ?></title>
+<title><?php $title;?></title>

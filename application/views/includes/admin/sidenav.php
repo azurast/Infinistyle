@@ -7,7 +7,7 @@
     </button>
     <!-- Brand -->
     <a class="navbar-brand pt-0" href="./index2.html">
-      <img src="argon/assets/img/brand/blue.png" class="navbar-brand-img" alt="...">
+      <img src="<?php echo base_url('\argon\assets\img\logo\Logo.png');?>" class="navbar-brand-img" alt="...">
     </a>
     <!-- Collapse -->
     <div class="collapse navbar-collapse" id="sidenav-collapse-main">
@@ -16,7 +16,7 @@
         <div class="row">
           <div class="col-6 collapse-brand">
             <a href="./index.html">
-              <img src="argon/assets/img/brand/blue.png">
+              <img src="<?php echo base_url('\argon\assets\img\logo\LogoTab.png');?>">
             </a>
           </div>
           <div class="col-6 collapse-close">
@@ -28,7 +28,7 @@
         </div>
       </div>
       <!-- Form -->
-      <form class="mt-4 mb-3 d-md-none">
+      <!-- <form class="mt-4 mb-3 d-md-none">
         <div class="input-group input-group-rounded input-group-merge">
           <input type="search" class="form-control form-control-rounded form-control-prepended" placeholder="Search" aria-label="Search">
           <div class="input-group-prepend">
@@ -37,7 +37,7 @@
             </div>
           </div>
         </div>
-      </form>
+      </form> -->
       <!-- Navigation -->
       <ul class="navbar-nav">
         <li class="nav-item">

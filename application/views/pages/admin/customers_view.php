@@ -2,16 +2,17 @@
 <html lang="en" dir="ltr">
     <head>
         <meta charset="utf-8">
-        <title><?php echo $title;?></title>
+        <title>Infinistyle</title>
         <?php echo $css; ?>
     </head>
-    <body class="bg-default g-sidenav-show g-sidenav-pinned" data-gr-c-s-loaded="true">
+    <body data-gr-c-s-loaded="true">
         <?php
-            echo $sidenav
+            echo $sidenav;
             echo $header;
             echo $customers;
             echo $footer;
         ?>
+            <?php echo $js; ?>
     </body>
-        <?php echo $js; ?>
+
 </html>

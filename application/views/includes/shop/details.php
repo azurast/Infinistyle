@@ -16,6 +16,8 @@
         border : none;
     }
 
+
+
 	.content{
 		margin-top:5%;
 		margin-bottom:5%;
