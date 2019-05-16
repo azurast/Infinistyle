@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
-class Cart extends CI_Controller{
+require_once APPPATH.'controllers/user/Login.php';
+class Cart extends Login{
 
     public function __construct(){
         parent::__construct();
@@ -9,6 +9,7 @@ class Cart extends CI_Controller{
 
     public function index(){
         //$this->load->model('Customer_model')
+        $this->check_is_login('customer');
         $data['css'] = $this->load->view('includes/css.php', NULL, TRUE);
         $data['navbar'] = $this->load->view('includes/user/navbar', NULL, TRUE);
         $data['cart'] = $this->load->view('includes/user/shoppingCart', NULL, TRUE);

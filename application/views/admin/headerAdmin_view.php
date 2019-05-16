@@ -118,7 +118,7 @@
                 <span>Settings</span>
               </a>
               <div class="dropdown-divider"></div>
-              <a href="<?= base_url('home');?>" class="dropdown-item">
+              <a href="<?= base_url('user/login/logout');?>" class="dropdown-item">
                 <i class="ni ni-user-run"></i>
                 <span>Logout</span>
               </a>
@@ -127,3 +127,4 @@
         </ul>
       </div>
     </nav>
+  </div>

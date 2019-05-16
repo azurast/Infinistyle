@@ -26,33 +26,30 @@
           <div class="text-muted text-center mt-2 mb-2"><strong>Sign Up</strong></div>
         </div>
         <div class="card-body px-lg-5 py-lg-5">
+        <?php echo form_open('user/register/register_validation'); ?>
           <form role="form">
             <div class="form-group">
-                <div class="row">
-                    <div class="col">
-                        <div class="input-group input-group-alternative mb-2">
-                          <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
-                          </div>
-                          <input class="form-control" placeholder="First Name" type="text">
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="input-group input-group-alternative mb-2">
-                          <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
-                          </div>
-                          <input class="form-control" placeholder="Last Name" type="text">
-                        </div>
-                    </div>
+              <div class="input-group input-group-alternative mb-2">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="ni ni-single-02"></i></span>
                 </div>
+                <input class="form-control" placeholder="Full Name" type="text" name="fullName">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="input-group input-group-alternative mb-2">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="ni ni-circle-08"></i></span>
+                </div>
+                <input class="form-control" placeholder="Username" type="text" name="username">
+              </div>
             </div>
             <div class="form-group">
               <div class="input-group input-group-alternative mb-3">
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                 </div>
-                <input class="form-control" placeholder="Email" type="email">
+                <input class="form-control" placeholder="Email" type="email" name="email">
               </div>
             </div>
             <div class="form-group">
@@ -60,7 +57,7 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                 </div>
-                <input class="form-control" placeholder="Password" type="password">
+                <input class="form-control" placeholder="Password" type="password" name="password">
               </div>
             </div>
             <div class="form-group">
@@ -68,15 +65,15 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="ni ni-badge"></i></span>
                 </div>
-                <input class="form-control" placeholder="Contact" type="text">
+                <input class="form-control" placeholder="Phone Number" type="text" name="phoneNo">
               </div>
             </div>
             <div class="form-group">
-                <textarea class="form-control form-control-alternative" rows="3" placeholder="Address"></textarea>
+                <textarea class="form-control form-control-alternative" rows="3" placeholder="Address" name="address"></textarea>
             </div>
               <div class="col-12">
                 <div class="custom-control custom-control-alternative custom-checkbox">
-                  <input class="custom-control-input" id="customCheckRegister" type="checkbox">
+                  <input class="custom-control-input" id="customCheckRegister" type="checkbox" name="policy" required>
                   <label class="custom-control-label" for="customCheckRegister">
                     <span class="text-muted">I agree with the <a href="#!">Privacy Policy</a></span>
                   </label>
@@ -84,9 +81,10 @@
               </div>
             </div>
             <div class="text-center mb-5">
-              <button type="button" class="btn btn-primary mt-4">Create account</button>
+              <input type="submit" class="btn btn-primary mt-4" value="Create account"/>
             </div>
           </form>
+          <?php echo form_close(); ?>
         </div>
       </div>
     </div>

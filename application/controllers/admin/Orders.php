@@ -1,7 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+require_once APPPATH.'controllers/user/Login.php';
 
-class Orders extends CI_Controller {
+class Orders extends Login {
 
     public function __construct(){
         parent::__construct();
@@ -9,6 +10,9 @@ class Orders extends CI_Controller {
 
     public function index(){
         $this->load->model('Order_model');
+
+        $this->check_is_login('admin');
+        
         $dt['title'] = "Orders";
         $dt['orders'] = $this->Order_model->get_all_order();
         $data['css'] = $this->load->view('includes/css.php', NULL, TRUE);

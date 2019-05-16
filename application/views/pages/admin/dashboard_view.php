@@ -14,5 +14,12 @@
             ?>
             <?php echo $js; ?>
     </body>
+    <script>
+    $(document).ready(function(){
+        let message = `<?php echo $message?>` ;
+
+        message && alert(message);
+    })
+    </script>
 
 </html>

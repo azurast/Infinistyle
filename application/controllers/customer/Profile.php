@@ -1,13 +1,15 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+require_once APPPATH.'controllers/user/Login.php';
 
-class Profile extends CI_Controller{
+class Profile extends Login{
 
     public function __construct(){
         parent::__construct();
     }
 
     public function index(){
+        $this->check_is_login('customer');
         //$this->load->model('Customer_model')
         $data['css'] = $this->load->view('includes/css.php', NULL, TRUE);
         $data['navbar'] = $this->load->view('includes/user/navbar', NULL, TRUE);

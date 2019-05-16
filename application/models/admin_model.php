@@ -9,6 +9,21 @@ class Admin_model extends CI_Model {
 
         return $result->result_array();
     }
+
+    public function get_admin($data){
+        $condition = "username =" . "'" . $data['username'] . "' AND " . "password =" . "'" . $data['password'] . "'";
+        $this->db->select('*');
+        $this->db->from('admin');
+        $this->db->where($condition);
+        $this->db->limit(1);
+        $query = $this->db->get();
+
+        if ($query->num_rows() == 1) {
+            return $query->row();
+        } else {
+            return false;
+        }
+    }
     
     public function insert_customer($item){
         $this->db->insert('admin',$item);

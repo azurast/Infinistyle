@@ -41,22 +41,22 @@
       <!-- Navigation -->
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="#">
+          <a class="nav-link" href="<?php echo base_url('admin/dashboard');?>">
             <i class="ni ni-tv-2 text-primary"></i> Dashboard
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">
+          <a class="nav-link" href="<?php echo base_url('admin/orders')?>">
             <i class="ni ni-bullet-list-67 text-red"></i>Orders
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">
+          <a class="nav-link" href="<?php echo base_url('admin/products')?>">
             <i class="ni ni-bag-17 text-green"></i>Products
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">
+          <a class="nav-link" href="<?php echo base_url('admin/customers')?>">
             <i class="ni ni-satisfied text-yellow"></i>Customers
           </a>
       </li>

@@ -26,6 +26,7 @@
         </div>
         <div class="card-body px-lg-5 py-lg-5">
         <!--FORM-->
+          <?php echo form_open('user/login/login_validation'); ?>
           <form role="form">
             <div class="form-group mb-3">
               <div class="input-group input-group-alternative">
@@ -44,9 +45,10 @@
               </div>
             </div>
             <div class="text-center">
-              <button type="button" class="btn btn-primary mt-4">Sign in</button>
+              <input type="submit" class="btn btn-primary mt-4" value="Sign in"/>
             </div>
           </form>
+          <?php echo form_close(); ?>
         </div>
       </div>
       <div class="row mt-3">

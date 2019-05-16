@@ -332,3 +332,10 @@
         </div>
       </footer>
     </div>
+
+    <script>
+    $(document).ready(function(){
+      let message = '<?php echo $message?>' ;
+      message && alert(message);
+    })
+    </script>
