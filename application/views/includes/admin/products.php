@@ -63,13 +63,13 @@
                     <td><?= $items[$i]["productName"]; ?></td>
                     <td><?= $items[$i]["productStock"]; ?></td>
                     <td>Rp <?= $items[$i]["productPrice"]; ?></td>
-                    <!-- <td><img src="<?php base_url('images/'. $items[$i]['productImage']);?>"></td> -->
+                    <td> <a href="#"><img src="<?php echo base_url('images/'. $items[$i]['productImage']);?>" width="120" height="120"></a></td>
                     <!-- <td colspan="4" class="collapse"><div class="card-body"><img src="<?php echo base_url('images/'. $items[$i]['productImage']);?>" width="120" height:"120"></div></td> -->
-                    <td>
+                    <!-- <td>
                       <a href="#" class="avatar rounded-circle mr-3">
                         <img alt="Image placeholder" src="<?= base_url('argon/assets/img/'); ?>ikeachair.jpg">
                       </a>
-                    </td>
+                    </td> -->
                     <td class="text-left">
                       <button type="button" class="btn btn-info edit" data-edit="<?= $items[$i]["productID"]; ?>" data-toggle="modal" data-target="#editModal">
                           Edit
@@ -82,11 +82,6 @@
                   </td>
                 </tr>
                 <tr>
-                  <td colspan="4" class="collapse" id="details<?= $items[$i]["productID"]; ?>">
-                    <div class="card-body">
-                      <img alt="Image placeholder" src="<?= base_url('argon/assets/img/'); ?>ikeachair.jpg" width="120" height="120">
-                    </div>
-                  </td>
                   <td colspan="3" class="collapse" id="details<?= $items[$i]["productID"]; ?>">
                     <div class="card-body">
                       <h3>Category : </h3>
@@ -159,15 +154,15 @@
             <div class="col-md">
               <div class="form-group">
               <label for="productCategory">Category</label>
-                <input type="text" id="productCategory" class="form-control form-control-alternative" />
-                <!-- <select class="custom-select" id="inputGroupSelect01">
+                <!-- <input type="text" id="productCategory" class="form-control form-control-alternative" /> -->
+                <select class="custom-select" id="productCategory">
                     <option selected>Choose Category...</option>
                     <option value="tops">Tops</option>
                     <option value="bottoms">Bottoms</option>
                     <option value="dresses">Dresses</option>
                     <option value="accecories">Accessories</option>
                     <option value="jumpsuit">Jumpsuit</option>
-                </select>-->
+                </select>
               </div>
             </div>
           </div>
