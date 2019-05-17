@@ -86,6 +86,11 @@
           </form>
           <?php echo form_close(); ?>
         </div>
+        <div class="row mt-3">
+          <div class="col-12 text-right">
+            <a href="<?php echo base_url('user/login') ?>" class="text-light"><small>or login to your account</small></a>
+          </div>
+        </div>
       </div>
     </div>
   </div>

@@ -1,6 +1,6 @@
 <div class="main-content">
   <!-- Header -->
-  <div class="header pb-8 pt-3 pt-lg-3 d-flex align-items-center bg-gradient-info" style="min-height: 200px; background-size: cover; background-position: center top;">
+  <div class="header pb-8 pt-3 pt-lg-3 d-flex align-items-center bg-gradient-default" style="min-height: 200px; background-size: cover; background-position: center top;">
     <!-- Mask -->
     <!--<span class="mask bg-gradient-default opacity-8"></span>-->
     <!-- Header container -->

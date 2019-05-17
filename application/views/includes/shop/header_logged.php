@@ -1,5 +1,5 @@
 <!-- Navbar -->
-<nav id="navbar-main" class="navbar navbar-horizontal navbar-transparent navbar-main navbar-expand-lg navbar-light bg-gradient-primary">
+<nav id="navbar-main" class="navbar navbar-horizontal navbar-transparent navbar-main navbar-expand-lg navbar-light bg-gradient-default">
     <!-- <div class="container"> -->
         <a class="navbar-brand" href="../pages/dashboards/dashboard.html">
             <img src="<?php echo base_url('argon\assets\img\logo\Logo.png'); ?>">
@@ -24,6 +24,11 @@
                 </div>
             </div>
             <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <button class="btn btn-icon btn-2 btn-info" type="button">
+                    	<span class="btn-inner--icon"><i class="ni ni-cart"></i></span>
+                    </button>
+                </li>
                 <li class="nav-item">
                     <a href="../../pages/examples/register.html" class="nav-link">
                         <span class="nav-link-inner--text btn btn-info font-weight-bold">Logout</span>

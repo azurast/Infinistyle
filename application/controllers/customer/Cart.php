@@ -11,7 +11,7 @@ class Cart extends Login{
         //$this->load->model('Customer_model')
         $this->check_is_login('customer');
         $data['css'] = $this->load->view('includes/css.php', NULL, TRUE);
-        $data['navbar'] = $this->load->view('includes/user/navbar', NULL, TRUE);
+        $data['navbar'] = $this->load->view('includes/shop/header_logged', NULL, TRUE);
         $data['cart'] = $this->load->view('includes/user/shoppingCart', NULL, TRUE);
         $data['footer'] = $this->load->view('includes/user/footer', NULL, TRUE);
         $data['js'] = $this->load->view('includes/js.php', NULL, TRUE);
