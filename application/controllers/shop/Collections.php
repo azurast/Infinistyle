@@ -9,6 +9,13 @@ class Collections extends CI_Controller{
     }
 
     public function index(){
+        $this->load_collections_view();
+    }
+    
+    public function load_collections_view(){
+        $this->load->model('product_model');
+        $params = $this->session->flashdata('collections_param');
+        $data['message'] = $params != false ? $params : null; 
         $card['result'] = $this->product_model->get_all_product();
         $data['css'] = $this->load->view('includes/css.php', NULL, TRUE);
         $data['header'] = $this->load->view('includes/shop/header.php', NULL, TRUE);
