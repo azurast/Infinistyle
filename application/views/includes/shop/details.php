@@ -39,7 +39,7 @@
             <h4 class="card-title mt-6 text-center"><?php echo $product[0]->productName?></h4>
             <p class="card-text text-center"><?php echo $product[0]->productDescription?></p>
             <p class="card-text text-center"><?php echo $product[0]->productCategory?></p>
-            <p class="card-text text-center"><?php echo "Rp".$product[0]->productPrice?></p>
+            <p class="card-text text-center"><?php echo "Rp".number_format($product[0]->productPrice)?></p>
             <center>
                 <button class="btn btn-icon btn-3 btn-primary" type="button">
                     <span class="btn-inner--icon"><i class="ni ni-fat-add"></i></span>

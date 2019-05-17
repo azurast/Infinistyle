@@ -41,7 +41,7 @@
                                 <h4 class="text-success text-uppercase"><?php echo $card['productName']?></h4>
                                 <p class="description mt-3"><?php echo $card['productDescription']?></p>
                                 <div class="product-price font-weight-bold mb-3">
-                                  <span>Rp <?php echo $card['productPrice']?></span>
+                                  <span>Rp <?php echo number_format($card['productPrice'])?></span>
                                 </div>
                                 <button class="btn btn-icon btn-3 btn-warning" type="button">
                                     <span class="btn-inner--text" href="#"><a class="text-white" href="<?php echo site_url('shop/details?id='.$card['productID']);?>">Details</a></span>
