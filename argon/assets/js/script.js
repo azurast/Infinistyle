@@ -3,7 +3,7 @@ $(document).ready(function () {
     $(".add").on("click", function () {
         $(".modal-title").html("Add");
         $(".change").html("Add");
-        $("#image").hide();
+        $("#productImage").hide();
 
         $("#productId").val('');
         $("#productName").val('');
