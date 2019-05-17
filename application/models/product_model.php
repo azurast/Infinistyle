@@ -41,5 +41,44 @@ class product_model extends CI_Model {
         $this->db->update('products',$item,"ProductID = ".$item["ProductID"]);
     }
 
+    public function get_Tops(){
+        $query = "SELECT * FROM products 
+        WHERE productCategory = 'Tops'";
+        $result = $this->db->query($query);
+
+        return $result->result_array();
+    }
+
+    public function get_Accesories(){
+        $query = "SELECT * FROM products 
+        WHERE productCategory = 'Accecories'";
+        $result = $this->db->query($query);
+
+        return $result->result_array();
+    }
+
+    public function get_Bottoms(){
+        $query = "SELECT * FROM products 
+        WHERE productCategory = 'Bottoms'";
+        $result = $this->db->query($query);
+
+        return $result->result_array();
+    }
+
+    public function get_Dress(){
+        $query = "SELECT * FROM products 
+        WHERE productCategory = 'Dress'";
+        $result = $this->db->query($query);
+
+        return $result->result_array();
+    }
+
+    public function get_Jumpsuit(){
+        $query = "SELECT * FROM products 
+        WHERE productCategory = 'Jumpsuit'";
+        $result = $this->db->query($query);
+
+        return $result->result_array();
+    }
 }
  ?>

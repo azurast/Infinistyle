@@ -16,21 +16,21 @@
             </div>
         </div>
     </nav>
-    <ul class="nav justify-content-center mt-3 mb-3">
+    <ul class="nav justify-content-center mt-3 mb-3">  
       <li class="nav-item">
-        <a class="nav-link text-white" href="#">Tops</a>
+        <a class="nav-link text-white" href="<?php echo base_url('shop/collections/tops');?>">Tops</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-white" href="#">Bottoms</a>
+        <a class="nav-link text-white" href="<?php echo base_url('shop/collections/bottoms');?>">Bottoms</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-white" href="#">Dresses</a>
+        <a class="nav-link text-white" href="<?php echo base_url('shop/collections/dress');?>">Dresses</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-white" href="#">Jumpsuits</a>
+        <a class="nav-link text-white" href="<?php echo base_url('shop/collections/jumpsuit');?>">Jumpsuits</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-white" href="#">Accessories</a>
+        <a class="nav-link text-white" href="<?php echo base_url('shop/collections/accesories');?>">Accessories</a>
       </li>
     </ul>
     <!-- Content -->
