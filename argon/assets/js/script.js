@@ -40,6 +40,7 @@ $(document).ready(function () {
                     $("#productCategory").val(result.productCategory);
                     $("#productStock").val(result.productStock);
                     $("#productDescription").val(result.productDescription);
+                    $("#productImage").attr("src","http://localhost/Infinistyle/images/" + result.productImage);
                 }
             });
         }

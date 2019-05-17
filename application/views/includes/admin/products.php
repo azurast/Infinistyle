@@ -186,7 +186,7 @@
             <div class="col-md">
               <div class="form-group">
                 <label for="productImage">Image</label>
-                <img src="<?= base_url('argon/assets/img/'); ?>ikeachair.jpg" width="100" height="100" id="image">
+                <img src="" width="100" height="100" id="productImage">
                 <input type="file" id="productImage" class="form-control form-control-alternative">
               </div>
             </div>
