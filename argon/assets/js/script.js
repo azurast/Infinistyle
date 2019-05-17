@@ -189,7 +189,7 @@ $(document).ready(function () {
             let id = $("#orderID").val();
             let status = $("#status").val();
             $.ajax({
-                url: "http://localhost/Infinistyle/admin/admin/edit_action",
+                url: "http://localhost/Infinistyle/admin/orders/edit_action",
                 method: "post",
                 data: {
                     title: "orders",

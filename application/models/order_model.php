@@ -8,7 +8,7 @@ class Order_model extends CI_Model {
 
         return $result->result_array();
     }
-    
+
     public function insert_order($item){
         $this->db->insert('orders',$item);
     }
@@ -17,8 +17,21 @@ class Order_model extends CI_Model {
         $this->db->update('orders',$item,"orderID = ".$item["OrderID"]);
     }
 
+    public function update($values, $table)
+    {
+        $sql = $this->db->update($table,$values,"orderID = ".$values["orderID"]);
+        return $sql;
+    }
+
     public function delete_order($item){
       $this->db->where('orderID', $item);
       $this->db->delete('orders');
+    }
+
+    public function orderDetails(){
+        $sql = "SELECT orderID, productName, qty FROM orderdetails AS d, products AS p WHERE d.productID = p.productID order by orderID";
+        $result = $this->db->query($sql);
+
+        return $result->result_array();
     }
 }

@@ -30,7 +30,7 @@
           <div class="col-md-6">
             <div class="card-header">
                 <div class="card-img-bottom text-dark text-center">
-                    <img src="argon/assets/img/pj.jpg" alt="product image here">
+                    <img src="<?php echo base_url('images/'. $product[0]->productImage); ?>" style="width: 100%; height: auto; max-height: 500px; max-width: 500px;" alt="product image here">
                 </div>
             </div>
           </div>

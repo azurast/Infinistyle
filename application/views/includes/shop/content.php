@@ -36,7 +36,7 @@
                     <?php $id = $card['productID']; ?>
                     <div class="col-md-3 mt-2 mb-2">
                         <div class="card card-lift--hover shadow border-0">
-                            <img src="<?php echo $card['productImage'] ?>" alt="<?php echo $card['productName']?>">
+                            <img src="<?php echo base_url('images/'. $card['productImage']);/*echo $card['productImage']*/ ?>" class="card-img-top" style="width: 100%; height: auto;" alt="<?php echo $card['productName']?>">
                             <div class="card-body py-5">
                                 <h4 class="text-success text-uppercase"><?php echo $card['productName']?></h4>
                                 <p class="description mt-3"><?php echo $card['productDescription']?></p>
