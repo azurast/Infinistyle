@@ -28,8 +28,8 @@
               <thead class="thead-light">
                 <tr>
                   <th scope="col">No</th>
-                  <th scope="col">Item ID</th>
                   <th scope="col">Item Name</th>
+                  <th scope="col">Image</th>
                   <th scope="col">Price</th>
                   <th scope="col">Qty</th>
                   <th scope="col">Total</th>
@@ -41,20 +41,24 @@
                     1
                   </th>
                   <td>
-                    TR001
+                    Nama Barang
                   </td>
                   <td>
-                    <span class="badge badge-dot mr-4">
-                      <i class="bg-warning"></i> pending
-                    </span>
+                      Image
                   </td>
                   <td>
+                      Harga
                   </td>
                   <td>
+                      <div class="form-group row">
+                      <div class="col-4">
+                        <input class="form-control" type="number" value="1" id="itemQty">
+                      </div>
+                    </div>
                   </td>
                   <td class="text-left">
-                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#detailsModal">
-                      Details
+                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#detailsModal">
+                      Delete
                     </button>
                     <!-- Modal Edit -->
                     <div class="modal fade" id="detailsModal" tabindex="-1" role="dialog" aria-labelledby="detailsModalLabel" aria-hidden="true">
@@ -108,6 +112,12 @@
         </div>
       </div>
     </div>
+    </div>
+    <!--Checkout-->
+    <div class="row justify-content-align-center">
+        <div class="ml-auto mt-5 mr-3">
+            <button class="btn btn-warning" type="button" name="button">Checkout</button>
+        </div>
     </div>
       <!--Modal-->
       <div class="row">

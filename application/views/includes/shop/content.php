@@ -38,8 +38,8 @@
                         <div class="card card-lift--hover shadow border-0">
                             <img src="<?php echo base_url('images/'. $card['productImage']);/*echo $card['productImage']*/ ?>" class="card-img-top" style="width: 100%; height: auto;" alt="<?php echo $card['productName']?>">
                             <div class="card-body py-5">
-                                <h4 class="text-success text-uppercase"><?php echo $card['productName']?></h4>
-                                <p class="description mt-3"><?php echo $card['productDescription']?></p>
+                                <h4 class="text-success text-uppercase"><?php echo substr( $card['productName'], 0, 20)."..."?></h4>
+                                <p class="description mt-3"><?php echo substr($card['productDescription'], 0, 15)."..."?></p>
                                 <div class="product-price font-weight-bold mb-3">
                                   <span>Rp <?php echo number_format($card['productPrice'])?></span>
                                 </div>
