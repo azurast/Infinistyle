@@ -11,10 +11,10 @@
                         <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <div class="media align-items-center">
                                 <span class="avatar avatar-sm rounded-circle">
-                                    <img alt="Image placeholder" src="argon/assets/img/theme/team-4-800x800.jpg">
+                                    <img alt="Image placeholder" src="<?php echo base_url('argon\assets\img\adminphoto.jpg');?>">
                                 </span>
                                 <div class="media-body ml-2 d-none d-lg-block">
-                                    <span class="mb-0 text-sm  font-weight-bold">Jessica Jones</span>
+                                    <span class="mb-0 text-sm  font-weight-bold"><?php echo "Hello, ".($this->session->userdata('logged_in_infinistyle')['username']);?></span>
                                 </div>
                             </div>
                         </a>
@@ -56,7 +56,7 @@
             <div class="container-fluid d-flex align-items-center">
                 <div class="row">
                     <div class="col-lg-7 col-md-10">
-                        <h1 class="display-2 text-white">Hello Jesse</h1>
+                        <h1 class="display-2 text-white"><?php echo $admin[0]->fullName ?></h1>
                         <p class="text-white mt-0 mb-5">This is your profile page. You can see the progress you've made with your work and manage your projects or assigned tasks</p>
                         <button type="button" class="btn btn-neutral" data-toggle="modal" data-target="#editProfileModal">Edit profile</button>
                     </div>

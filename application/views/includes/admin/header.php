@@ -11,10 +11,10 @@
           <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <div class="media align-items-center">
               <span class="avatar avatar-sm rounded-circle">
-                <img alt="Image placeholder" src="argon/assets/img/theme/team-4-800x800.jpg">
+                <img alt="Image placeholder" src="<?php echo base_url('argon\assets\img\adminphoto.jpg');?>">
               </span>
               <div class="media-body ml-2 d-none d-lg-block">
-                <span class="mb-0 text-sm  font-weight-bold">Jessica Jones</span>
+                <span class="mb-0 text-sm  font-weight-bold"><?php echo "Hello, ".($this->session->userdata('logged_in_infinistyle')['username']);?></span>
               </div>
             </div>
           </a>

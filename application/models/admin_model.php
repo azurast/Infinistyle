@@ -9,6 +9,10 @@ class Admin_model extends CI_Model {
 
         return $result->result_array();
     }
+    
+    public function display($table,$where){
+        return $this->db->get_where($table,$where);
+    }
 
     public function get_admin($data){
         $condition = "username =" . "'" . $data['username'] . "' AND " . "password =" . "'" . $data['password'] . "'";
@@ -24,7 +28,7 @@ class Admin_model extends CI_Model {
             return false;
         }
     }
-    
+
     public function insert_customer($item){
         $this->db->insert('admin',$item);
     }
@@ -37,7 +41,7 @@ class Admin_model extends CI_Model {
       $this->db->where('adminID', $item);
       $this->db->delete('admin');
     }
-    
+
     public function get_item(){
         $query = "SELECT * FROM products";
         $result = $this->db->query($query);

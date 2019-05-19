@@ -9,7 +9,7 @@
                 <div class="card-body">
                   <div class="row">
                     <div class="col">
-                      <h5 class="card-title text-uppercase text-muted mb-0">Goods</h5>
+                      <h5 class="card-title text-uppercase text-muted mb-0">Products</h5>
                       <!--Bisa ga ya count banyak transaksi?-->
                       <span class="h2 font-weight-bold mb-0"><?= count($items);  ?></span>
                     </div>
@@ -38,7 +38,7 @@
           <div class="card shadow">
             <div class="card-header border-0">
               <div class="row">
-                <h3 class="mb-0 col-md-10 title">Goods List</h3>
+                <h3 class="mb-0 col-md-10 title">Products List</h3>
                 <button class="btn btn-success add col-md-2" data-toggle="modal" data-target="#editModal"><i class="fas fa-plus"></i> Add Item</button>
               </div>
             </div>
@@ -47,7 +47,7 @@
                 <thead class="thead-light">
                   <tr>
                     <th scope="col">No</th>
-                    <th scope="col">Goods ID</th>
+                    <th scope="col">Product ID</th>
                     <th scope="col">Name</th>
                     <th scope="col">Stock</th>
                     <th scope="col">Price</th>
