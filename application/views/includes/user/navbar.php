@@ -25,7 +25,7 @@
             </div>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a href="../../pages/examples/register.html" class="nav-link">
+                    <a href="<?php echo site_url('user/login')?>" class="nav-link">
                         <span class="nav-link-inner--text btn btn-info font-weight-bold">Logout</span>
                     </a>
                 </li>
