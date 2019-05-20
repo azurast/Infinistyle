@@ -14,15 +14,11 @@ class Cart extends Login{
 
         $this->load->model('shoppingCartDetails_model');
         $cart_response = $this->shoppingCartDetails_model->get_shoppingCartDetails_per_cartID($cart);
-        echo "<pre>";
-        print_r($cart_response);
-        echo "</pre>";
-        
-        //tinggal masukkin kesini
-        // $data['shopping_cart'] = 
+
+        $t['res'] = $cart_response;
         $data['css'] = $this->load->view('includes/css.php', NULL, TRUE);
         $data['navbar'] = $this->load->view('includes/shop/header_logged', NULL, TRUE);
-        $data['cart'] = $this->load->view('includes/user/shoppingCart', NULL, TRUE);
+        $data['cart'] = $this->load->view('includes/user/shoppingCart', $t, TRUE);
         $data['footer'] = $this->load->view('includes/user/footer', NULL, TRUE);
         $data['js'] = $this->load->view('includes/js.php', NULL, TRUE);
         $this->load->view('pages/user/shoppingCart_view.php', $data);
@@ -30,10 +26,10 @@ class Cart extends Login{
 
     public function get_cart_id(){
         if((isset($this->session->userdata['logged_in_infinistyle']))){
-            
+
             //#1 - get username from session
             $user =  $this->session->userdata['logged_in_infinistyle'];
-            
+
             //#2 - use the username data to get customerID
             $this->load->model('Customer_model');
             $customer = $this->Customer_model->get_customer($user);
@@ -48,7 +44,7 @@ class Cart extends Login{
 
             $this->load->model('shoppingCart_model');
             $cart_response = $this->shoppingCart_model->get_shoppingCart($cart_params);
-            
+
             //if cart already exist
             if($cart_response != false){
                 // echo "cart already exist for user " . $customer->customerID;
@@ -70,13 +66,13 @@ class Cart extends Login{
 
         $this->form_validation->set_rules('productID', 'productID', 'trim|required');
         $this->form_validation->set_rules('quantity', 'quantity', 'trim|required');
-        
+
         if ($this->form_validation->run() == FALSE) {
             // TODO
         }
         else {
             $cartID = $this->get_cart_id();
-            
+
             if($cartID == false){
                 $error = array(
                     "code" => 2024,
@@ -84,15 +80,15 @@ class Cart extends Login{
                 );
                 return  $error;
             }
-                
+
             $add_cart_detail_params = array(
                 "cartID" => $cartID,
                 "productID" => $this->input->post('productID'),
                 "qty" => $this->input->post('quantity')
             );
-            
+
             $this->load->model('ShoppingCartDetails_model');
-            
+
             $result = $this->ShoppingCartDetails_model->insert_shoppingCartDetails($add_cart_detail_params);
 
             if($result['code'] == 0){ // RESULT OK

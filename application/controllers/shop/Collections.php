@@ -14,7 +14,6 @@ class Collections extends CI_Controller{
     }
     
     public function load_collections_view(){
-        $this->load->model('Customer_model');
         $this->load->model('product_model');
         
         $params = $this->session->flashdata('collections_param');
@@ -22,11 +21,13 @@ class Collections extends CI_Controller{
         $data['message'] = $params != false ? $params : null; 
         $card['result'] = $this->product_model->get_all_product();
         $data['css'] = $this->load->view('includes/css.php', NULL, TRUE);
+
         if(isset($this->session->userdata['logged_in_infinistyle'])){
             $data['header'] = $this->load->view('includes/shop/header_collections_logged.php', NULL, TRUE);
         }else{
             $data['header'] = $this->load->view('includes/shop/header.php', NULL, TRUE);
         }
+
         $data['content'] = $this->load->view('includes/shop/content.php', $card, TRUE);
         $data['footer'] = $this->load->view('includes/shop/footer.php', NULL, TRUE);
         $data['js'] = $this->load->view('includes/js.php', NULL, TRUE);
