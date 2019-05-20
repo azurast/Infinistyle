@@ -41,6 +41,9 @@
             <p class="card-text text-center"><?php echo $product[0]->productCategory?></p>
             <p class="card-text text-center"><?php echo "Rp".number_format($product[0]->productPrice)?></p>
             <center>
+                <div class="col-3 mb-3">
+                    <input class="form-control" type="number" value="1" id="qty">
+                 </div>
                 <button class="btn btn-icon btn-3 btn-primary" type="button">
                     <span class="btn-inner--icon"><i class="ni ni-fat-add"></i></span>
                     <span class="btn-inner--text">Add To Cart</span>
