@@ -9,6 +9,13 @@ class Order_model extends CI_Model {
         return $result->result_array();
     }
 
+    public function get_five_order(){
+        $query = "SELECT * FROM orders ORDER BY orderId LIMIT 5";
+        $result = $this->db->query($query);
+
+        return $result->result_array();
+    }
+
     public function insert_order($item){
         $this->db->insert('orders',$item);
     }

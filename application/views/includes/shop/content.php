@@ -43,8 +43,8 @@
                                 <div class="product-price font-weight-bold mb-3">
                                   <span>Rp <?php echo number_format($card['productPrice'])?></span>
                                 </div>
-                                <button class="btn btn-icon btn-3 btn-warning" type="button">
-                                    <span class="btn-inner--text" href="#"><a class="text-white" href="<?php echo site_url('shop/details?id='.$card['productID']);?>">Details</a></span>
+                                <button class="btn btn-icon btn-3 btn-warning text-white" type="button" onclick="window.location.href='<?php echo site_url('shop/details?id='.$card['productID']);?>'">
+                                    <span class="btn-inner--text text-white" href="#">Details</span>
                                 </button>
                             </div>
                         </div>

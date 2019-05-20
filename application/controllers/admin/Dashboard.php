@@ -10,6 +10,10 @@ class Dashboard extends Login {
 
     public function index(){
         $this->load->model('Admin_model');
+        $this->load->model('Order_model');
+        $this->load->model('Customer_model');
+        $this->load->model('Product_model');        
+
 
         $this->check_is_login('admin');
         
@@ -17,6 +21,10 @@ class Dashboard extends Login {
         $data["message"] = $params != false ? $params : null;
         
         $dt['title'] = "Dashboard";
+        $dt['customer'] = $this->Customer_model->get_five_customer();
+        $dt['items'] = $this->Product_model->get_five_product();
+        $dt['orders'] = $this->Order_model->get_five_order();
+        $dt['orderDetails'] = $this->Order_model->orderDetails();
         $data['css'] = $this->load->view('includes/css.php', NULL, TRUE);
         $data['js'] =  $this->load->view('includes/js.php', NULL, TRUE);
         $data['sidenav'] = $this->load->view('includes/admin/sidenav',NULL,TRUE);

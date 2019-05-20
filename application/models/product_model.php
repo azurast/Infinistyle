@@ -11,6 +11,14 @@ class product_model extends CI_Model {
         return $result->result_array();
     }
 
+    public function get_five_product(){
+
+        $query = "SELECT * FROM products LIMIT 5";
+        $result = $this->db->query($query);
+
+        return $result->result_array();
+    }
+
     public function display($table,$where){
         
         return $this->db->get_where($table,$where);
