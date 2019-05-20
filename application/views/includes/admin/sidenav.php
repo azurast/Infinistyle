@@ -6,7 +6,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <!-- Brand -->
-    <a class="navbar-brand pt-0" href="./index2.html">
+    <a class="navbar-brand pt-0" href="<?= base_url('admin/dashboard');?>">
       <img src="<?php echo base_url('\argon\assets\img\logo\Logo.png');?>" class="navbar-brand-img" alt="...">
     </a>
     <!-- Collapse -->

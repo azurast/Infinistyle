@@ -2,7 +2,7 @@
     <!-- Navbar -->
     <nav id="navbar-main" class="navbar navbar-horizontal navbar-transparent navbar-main navbar-expand-lg navbar-light bg-default">
         <!-- <div class="container"> -->
-            <a class="navbar-brand" href="../pages/dashboards/dashboard.html">
+            <a class="navbar-brand" href="<?= base_url('shop/collections');?>">
                 <img src="<?php echo base_url('argon\assets\img\logo\Logo.png'); ?>">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,7 +28,7 @@
                     <li class="nav-item"><a class="nav-link" href="#"><span class="nav-link-inner--text text-success font-weight-bold"><?php echo "Hello, ".($this->session->userdata('logged_in_infinistyle')['username']);?></span></a></li>
                     <li class="nav-item"><a href="<?php echo site_url('customer/cart')?>" class="nav-link"><span class="nav-link-inner--text text-white font-weight-bold"><i class="ni ni-cart"></i>Cart</span></a></li>
                     <li class="nav-item"><a href="<?php echo site_url('customer/profile')?>" class="nav-link"><span class="nav-link-inner--text text-white font-weight-bold"><i class="ni ni-circle-08"></i>Profile</span></a></li>
-                    <li class="nav-item"><a href="<?php echo site_url('user/login')?>" class="nav-link"><span class="nav-link-inner--text text-white font-weight-bold">Logout</span></a></li>
+                    <li class="nav-item"><a href="<?php echo site_url('user/login/logout')?>" class="nav-link"><span class="nav-link-inner--text text-white font-weight-bold">Logout</span></a></li>
                 </ul>
                 <hr class="d-lg-none">
             </div>
