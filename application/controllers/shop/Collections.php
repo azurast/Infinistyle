@@ -16,11 +16,13 @@ class Collections extends CI_Controller{
     public function load_collections_view(){
         $this->load->model('Customer_model');
         $this->load->model('product_model');
+        
         $params = $this->session->flashdata('collections_param');
+        $params = $this->session->flashdata('logout_success');
         $data['message'] = $params != false ? $params : null; 
         $card['result'] = $this->product_model->get_all_product();
         $data['css'] = $this->load->view('includes/css.php', NULL, TRUE);
-        if($this->session->userdata['logged_in_infinistyle']){
+        if(isset($this->session->userdata['logged_in_infinistyle'])){
             $data['header'] = $this->load->view('includes/shop/header_collections_logged.php', NULL, TRUE);
         }else{
             $data['header'] = $this->load->view('includes/shop/header.php', NULL, TRUE);
@@ -34,7 +36,11 @@ class Collections extends CI_Controller{
     public function tops(){
         $card['result'] = $this->product_model->get_tops();
         $data['css'] = $this->load->view('includes/css.php', NULL, TRUE);
-        $data['header'] = $this->load->view('includes/shop/header.php', NULL, TRUE);
+        if(isset($this->session->userdata['logged_in_infinistyle'])){
+            $data['header'] = $this->load->view('includes/shop/header_collections_logged.php', NULL, TRUE);
+        }else{
+            $data['header'] = $this->load->view('includes/shop/header.php', NULL, TRUE);
+        }
         $data['content'] = $this->load->view('includes/shop/content.php', $card, TRUE);
         $data['footer'] = $this->load->view('includes/shop/footer.php', NULL, TRUE);
         $data['js'] = $this->load->view('includes/js.php', NULL, TRUE);
@@ -44,7 +50,11 @@ class Collections extends CI_Controller{
     public function bottoms(){
         $card['result'] = $this->product_model->get_bottoms();
         $data['css'] = $this->load->view('includes/css.php', NULL, TRUE);
-        $data['header'] = $this->load->view('includes/shop/header.php', NULL, TRUE);
+        if(isset($this->session->userdata['logged_in_infinistyle'])){
+            $data['header'] = $this->load->view('includes/shop/header_collections_logged.php', NULL, TRUE);
+        }else{
+            $data['header'] = $this->load->view('includes/shop/header.php', NULL, TRUE);
+        }
         $data['content'] = $this->load->view('includes/shop/content.php', $card, TRUE);
         $data['footer'] = $this->load->view('includes/shop/footer.php', NULL, TRUE);
         $data['js'] = $this->load->view('includes/js.php', NULL, TRUE);
@@ -54,7 +64,11 @@ class Collections extends CI_Controller{
     public function dress(){
         $card['result'] = $this->product_model->get_dress();
         $data['css'] = $this->load->view('includes/css.php', NULL, TRUE);
-        $data['header'] = $this->load->view('includes/shop/header.php', NULL, TRUE);
+        if(isset($this->session->userdata['logged_in_infinistyle'])){
+            $data['header'] = $this->load->view('includes/shop/header_collections_logged.php', NULL, TRUE);
+        }else{
+            $data['header'] = $this->load->view('includes/shop/header.php', NULL, TRUE);
+        }
         $data['content'] = $this->load->view('includes/shop/content.php', $card, TRUE);
         $data['footer'] = $this->load->view('includes/shop/footer.php', NULL, TRUE);
         $data['js'] = $this->load->view('includes/js.php', NULL, TRUE);
@@ -64,7 +78,11 @@ class Collections extends CI_Controller{
     public function jumpsuit(){
         $card['result'] = $this->product_model->get_jumpsuit();
         $data['css'] = $this->load->view('includes/css.php', NULL, TRUE);
-        $data['header'] = $this->load->view('includes/shop/header.php', NULL, TRUE);
+        if(isset($this->session->userdata['logged_in_infinistyle'])){
+            $data['header'] = $this->load->view('includes/shop/header_collections_logged.php', NULL, TRUE);
+        }else{
+            $data['header'] = $this->load->view('includes/shop/header.php', NULL, TRUE);
+        }
         $data['content'] = $this->load->view('includes/shop/content.php', $card, TRUE);
         $data['footer'] = $this->load->view('includes/shop/footer.php', NULL, TRUE);
         $data['js'] = $this->load->view('includes/js.php', NULL, TRUE);
@@ -74,7 +92,11 @@ class Collections extends CI_Controller{
     public function accesories(){
         $card['result'] = $this->product_model->get_accesories();
         $data['css'] = $this->load->view('includes/css.php', NULL, TRUE);
-        $data['header'] = $this->load->view('includes/shop/header.php', NULL, TRUE);
+        if(isset($this->session->userdata['logged_in_infinistyle'])){
+            $data['header'] = $this->load->view('includes/shop/header_collections_logged.php', NULL, TRUE);
+        }else{
+            $data['header'] = $this->load->view('includes/shop/header.php', NULL, TRUE);
+        }
         $data['content'] = $this->load->view('includes/shop/content.php', $card, TRUE);
         $data['footer'] = $this->load->view('includes/shop/footer.php', NULL, TRUE);
         $data['js'] = $this->load->view('includes/js.php', NULL, TRUE);

@@ -15,6 +15,8 @@ class Login extends CI_Controller {
   }
   
   public function index(){
+    $params = $this->session->flashdata('login_fail');
+    $data['message'] = $params != false ? $params : null; 
     $data['css'] = $this->load->view('includes/css.php', NULL, TRUE);
     $data['js'] = $this->load->view('includes/js.php', NULL, TRUE);
     $data['nav'] = $this->load->view('includes/shop/nav.php', NULL, TRUE);
@@ -75,6 +77,11 @@ class Login extends CI_Controller {
         redirect('shop/collections');
         // TODO : mau ngapain
       }
+
+      if(!$result_customer && !$result_admin){
+        $this->session->set_flashdata('login_fail', 'Username atau Password Salah!!');
+        redirect('user/login');
+      }
     }
   }
     
@@ -83,9 +90,11 @@ class Login extends CI_Controller {
     $sess_array = array(
       'username' => ''
     );
-    $this->session->unset_userdata('logged_in', $sess_array);
+    // session_destroy();
+    $this->session->unset_userdata('logged_in_infinistyle', $sess_array);
+    $this->session->set_flashdata('logout_success', 'Logout berhasil!');
     $data['message_display'] = 'Successfully Logout';
-    redirect('user/login');
+    redirect('shop/collections');
   }  
 }
 ?>
