@@ -70,45 +70,52 @@ class Cart extends Login{
         $this->form_validation->set_rules('productID', 'productID', 'trim|required');
         $this->form_validation->set_rules('quantity', 'quantity', 'trim|required');
 
-        if ($this->form_validation->run() == FALSE) {
-            // TODO
-        }
-        else {
-            $cartID = $this->get_cart_id();
-
-            if($cartID == false){
-                $error = array(
-                    "code" => 2024,
-                    "message" => "Cart tidak ditemukan."
-                );
-                $this->session->set_flashdata('cart_response', $error);
-                redirect('customer/cart');
-            }
-
-            $add_cart_detail_params = array(
-                "cartID" => $cartID,
-                "productID" => $this->input->post('productID'),
-                "qty" => $this->input->post('quantity')
-            );
-
-            $this->load->model('ShoppingCartDetails_model');
-
-            $result = $this->ShoppingCartDetails_model->insert_shoppingCartDetails($add_cart_detail_params);
-
-            if($result['code'] == 0){ // RESULT OK
-                $response = array(
-                    "code" => 200,
-                    "message" => "Add product to cart success!"
-                );
+        if(isset($this->session->userdata['logged_in_infinistyle'])){
+            $data['header'] = $this->load->view('includes/shop/header_collections_logged.php', NULL, TRUE);
+            if ($this->form_validation->run() == FALSE) {
+                // TODO
             }
             else {
-                $response = array(
-                    "code" => 400,
-                    "message" => "Failed add product to cart. Please try again."
+                $cartID = $this->get_cart_id();
+
+                if($cartID == false){
+                    $error = array(
+                        "code" => 2024,
+                        "message" => "Cart tidak ditemukan."
+                    );
+                    $this->session->set_flashdata('cart_response', $error);
+                     redirect('customer/cart');
+                }
+
+                $add_cart_detail_params = array(
+                    "cartID" => $cartID,
+                    "productID" => $this->input->post('productID'),
+                    "qty" => $this->input->post('quantity')
                 );
+
+                $this->load->model('ShoppingCartDetails_model');
+
+                $result = $this->ShoppingCartDetails_model->insert_shoppingCartDetails($add_cart_detail_params);
+
+                if($result['code'] == 0){ // RESULT OK
+                    $response = array(
+                        "code" => 200,
+                        "message" => "Add product to cart success!"
+                    );
+                }
+                else {
+                    $response = array(
+                        "code" => 400,
+                        "message" => "Failed add product to cart. Please try again."
+                    );
+                }
+                $this->session->set_flashdata('cart_response', $response);
+                redirect('customer/cart');
             }
-            $this->session->set_flashdata('cart_response', $response);
-            redirect('customer/cart');
+        }
+        else{
+            $this->session->set_flashdata('loginPage_param', 'Silahkan login terlebih dahulu');
+            redirect('user/login');
         }
     }
 
