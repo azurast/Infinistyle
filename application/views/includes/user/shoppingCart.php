@@ -1,6 +1,6 @@
 <div class="main-content">
     <!-- Header -->
-    <div class="header pb-8 pt-3 pt-lg-3 d-flex align-items-center bg-gradient-default" style="min-height: 200px; background-size: cover; background-position: center top;">
+    <div class="header pb-8 pt-3 pt-lg-3 d-flex align-items-center bg-default" style="min-height: 200px; background-size: cover; background-position: center top;">
         <!-- Mask -->
         <!--<span class="mask bg-gradient-default opacity-8"></span>-->
         <!-- Header container -->
@@ -78,7 +78,7 @@
                                                         </div>
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                            
+
                                                         </div>
                                                     </div>
                                                 </div>
@@ -146,4 +146,12 @@
                 </div>
             </div>
         </div>
+    </div>
+    <!-- Footer -->
+    <div class="container">
+        <footer class="footer bg-default">
+            <div class="copyright text-center text-muted">
+                &copy; 2019 <a href="#" class="font-weight-bold text-success" target="_blank">Infinistyle</a>
+            </div>
+        </footer>
     </div>

@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-lg-7 col-md-10">
                 <h1 class="display-2 text-white">My Account</h1>
-                <button type="button" class="btn btn-neutral" data-toggle="modal" data-target="#editProfileModal">Edit profile</button>
+                <!-- <button type="button" class="btn btn-neutral" data-toggle="modal" data-target="#editProfileModal">Edit profile</button> -->
             </div>
         </div>
     </div>

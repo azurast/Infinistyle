@@ -17,9 +17,13 @@ class Cart extends Login{
 
         $t['res'] = $cart_response;
         $data['css'] = $this->load->view('includes/css.php', NULL, TRUE);
-        $data['navbar'] = $this->load->view('includes/shop/header_logged', NULL, TRUE);
+        if(isset($this->session->userdata['logged_in_infinistyle'])){
+            $data['header'] = $this->load->view('includes/shop/header_collections_logged.php', NULL, TRUE);
+        }else{
+            $data['header'] = $this->load->view('includes/shop/header.php', NULL, TRUE);
+        }
         $data['cart'] = $this->load->view('includes/user/shoppingCart', $t, TRUE);
-        $data['footer'] = $this->load->view('includes/user/footer', NULL, TRUE);
+        // $data['footer'] = $this->load->view('includes/user/footer', NULL, TRUE);
         $data['js'] = $this->load->view('includes/js.php', NULL, TRUE);
         $this->load->view('pages/user/shoppingCart_view.php', $data);
     }
