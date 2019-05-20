@@ -13,7 +13,7 @@
                   <h2 class="text-white mb-0">Transaction List</h2>
                 </div>
                 <div class="col-md-2 text-right">
-                  <a href="<?php echo base_url('admin/customers') ?>" class="btn btn-sm btn-primary">See all</a>
+                  <a href="<?php echo base_url('admin/orders') ?>" class="btn btn-sm btn-primary">See all</a>
                 </div>
                 <div class="col">
                   
