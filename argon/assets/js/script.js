@@ -3,7 +3,8 @@ $(document).ready(function () {
     $(".add").on("click", function () {
         $(".modal-title").html("Add");
         $(".change").html("Add");
-        $("#image").hide();
+        $("#gambar").attr("src", "#");
+        $("#gambar").hide();
 
         $("#productId").val('');
         $("#productName").val('');
@@ -16,13 +17,13 @@ $(document).ready(function () {
     $(".edit").on("click", function () {
         $(".modal-title").html("Edit");
         $(".change").html("Save");
-        $("#image").show();
+        $("#gambar").show();
 
         let id = $(this).data('edit');
 
         let title = $('.title').text();
 
-        if (title == "Goods List") {
+        if (title == "Products List") {
             $.ajax({
                 url: "http://localhost/Infinistyle/admin/admin/edit",
                 method: "post",
@@ -40,6 +41,7 @@ $(document).ready(function () {
                     $("#productCategory").val(result.productCategory);
                     $("#productStock").val(result.productStock);
                     $("#productDescription").val(result.productDescription);
+                    $("#gambar").attr("src", result.productImage);
                 }
             });
         }
@@ -102,58 +104,104 @@ $(document).ready(function () {
     $(".change").on("click", function () {
         let title = $('.title').text();
 
-        if (title == "Goods List") {
-
-            let id = $("#productId").val();
-            let name = $("#productName").val();
-            let price = $("#productPrice").val();
-            let category = $("#productCategory").val();
-            let stock = $("#productStock").val();
-            let desc = $("#productDescription").val();
-            let image = $("#productImage").val();
-
-            let text = $(this).text();
-            if (text == 'Add') {
-                $.ajax({
-                    url: "http://localhost/Infinistyle/admin/admin/add_action",
-                    method: "post",
-                    data: {
-                        id: id,
-                        name: name,
-                        price: price,
-                        category: category,
-                        stock: stock,
-                        desc: desc,
-                        image: image
-                    },
-                    success: function (conf) {
-                        console.log(conf);
-                        if (conf == 0) {
-                            $("#editModal").modal('hide');
-                            location.reload();
-                        }
+        if (title == "Products List") {
+            let btn = $(this).text();
+            let form = new FormData();
+            form.append('id', $("#productId").val());
+            form.append('name', $("#productName").val());
+            form.append('price', $("#productPrice").val());
+            form.append('category', $("#productCategory").val());
+            form.append('stock', $("#productStock").val());
+            form.append('desc', $("#productDescription").val());
+            if (btn == "Add") {
+                if ($("#productImage").val() != '') {
+                    let img = document.getElementById('productImage').files[0];
+                    let ext = img.name.split('.').pop().toLowerCase();
+                    if (jQuery.inArray(ext, ['gif', 'png', 'jpg', 'jpeg']) != -1) {
+                        form.append('image', img);
+                        $.ajax({
+                            url: "http://localhost/Infinistyle/admin/admin/add_action",
+                            method: "post",
+                            data: form,
+                            dataType: 'json',
+                            processData: false,
+                            contentType: false,
+                            success: function (conf) {
+                                if (conf.status == "error") {
+                                    $("#error").css("display", "block");
+                                    $("#error").html(conf.message);
+                                }
+                                else {
+                                    $("#editModal").modal('hide');
+                                    location.reload();
+                                }
+                            }
+                        })
                     }
-                })
+                    else {
+                        $("#error").css("display", "block");
+                        $("#error").html("not allowed file extension");
+                    }
+                }
+                else {
+                    $("#error").css("display", "block");
+                    $("#error").html("file cannot empty!");
+                }
+
             }
-            else if (text == 'Save') {
-                $.ajax({
-                    url: "http://localhost/Infinistyle/admin/admin/edit_action",
-                    method: "post",
-                    data: {
-                        title: "products",
-                        id: id,
-                        name: name,
-                        price: price,
-                        category: category,
-                        stock: stock,
-                        desc: desc,
-                        image: image
-                    },
-                    success: function (data) {
-                        $("#editModal").modal('hide');
-                        location.reload();
+            else if (btn == "Save") {
+                if ($("#productImage").val() != '') {
+                    let img = document.getElementById('productImage').files[0];
+                    let ext = img.name.split('.').pop().toLowerCase();
+                    if (jQuery.inArray(ext, ['gif', 'png', 'jpg', 'jpeg']) != -1) {
+                        form.append('image', img);
+                        form.append('title', 'products');
+                        $.ajax({
+                            url: "http://localhost/Infinistyle/admin/admin/edit_action",
+                            method: "post",
+                            data: form,
+                            dataType: 'json',
+                            processData: false,
+                            contentType: false,
+                            success: function (conf) {
+                                if (conf.status == "error") {
+                                    $("#error").css("display", "block");
+                                    $("#error").html(conf.message);
+                                }
+                                else {
+                                    $("#editModal").modal('hide');
+                                    location.reload();
+                                }
+                            }
+                        })
                     }
-                })
+                    else {
+                        $("#error").css("display", "block");
+                        $("#error").html("not allowed file extension");
+                    }
+                }
+                else {
+                    form.append('image', $("#gambar").attr("src"));
+                    form.append('title', 'products');
+                    $.ajax({
+                        url: "http://localhost/Infinistyle/admin/admin/edit_action",
+                        method: "post",
+                        dataType: "json",
+                        data: form,
+                        processData: false,
+                        contentType: false,
+                        success: function (data) {
+                            if (data.status == 'error') {
+                                $("#error").css("display", "block");
+                                $("#error").html(data.message);
+                            }
+                            else {
+                                $("#editModal").modal('hide');
+                                location.reload();
+                            }
+                        }
+                    })
+                }
             }
         }
         else if (title == "Customers List") {

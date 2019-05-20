@@ -19,6 +19,12 @@ class Customer_model extends CI_Model {
         return $result->result_array();
     }
 
+    public function get_order_details(){
+        $query = "SELECT orderID, productName, qty FROM orderdetails AS d, products AS p WHERE d.productID = p.productID order by orderID";
+        $result = $this->db->query($query);
+        return $result->result_array();
+    }
+
     public function get_customer($data){
         $condition = "username =" . "'" . $data['username'] . "'";
         $this->db->select('*');

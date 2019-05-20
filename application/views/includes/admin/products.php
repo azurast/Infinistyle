@@ -63,7 +63,7 @@
                     <td><?= $items[$i]["productName"]; ?></td>
                     <td><?= $items[$i]["productStock"]; ?></td>
                     <td>Rp <?= $items[$i]["productPrice"]; ?></td>
-                    <td> <a href="#"><img src="<?php echo base_url('images/'. $items[$i]['productImage']);?>" width="120" height="120"></a></td>
+                    <td> <a href="#"><img src="<?= $items[$i]['productImage']; ?>" width="120" height="120"></a></td>
                     <!-- <td colspan="4" class="collapse"><div class="card-body"><img src="<?php echo base_url('images/'. $items[$i]['productImage']);?>" width="120" height:"120"></div></td> -->
                     <!-- <td>
                       <a href="#" class="avatar rounded-circle mr-3">
@@ -135,6 +135,9 @@
           </button>
         </div>
         <div class="modal-body">
+          <div class="row">
+              <div class="alert alert-danger" id="error" style="display: none;"></div>
+          </div>
           <input type="hidden" id="productId" readonly>
           <div class="row">
             <div class="col-md-6">
@@ -160,7 +163,7 @@
                     <option value="tops">Tops</option>
                     <option value="bottoms">Bottoms</option>
                     <option value="dresses">Dresses</option>
-                    <option value="accecories">Accessories</option>
+                    <option value="accessories">Accessories</option>
                     <option value="jumpsuit">Jumpsuit</option>
                 </select>
               </div>
@@ -186,7 +189,7 @@
             <div class="col-md">
               <div class="form-group">
                 <label for="productImage">Image</label>
-                <img src="" width="100" height="100" id="productImage">
+                <img src="#" width="100" height="100" id="gambar">
                 <input type="file" id="productImage" class="form-control form-control-alternative">
               </div>
             </div>

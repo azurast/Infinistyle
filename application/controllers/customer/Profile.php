@@ -20,6 +20,7 @@ class Profile extends Login{
 
         $currentcustomer = $this->Customer_model->display('customers',$where)->result();
         $t['orders'] = $this->Customer_model->get_order_history($currentcustomer[0]->customerID);
+        $t['orderDetails'] = $this->Customer_model->get_order_details($currentcustomer[0]->customerID);
 
         $data['css'] = $this->load->view('includes/css.php', NULL, TRUE);
         $data['navbar'] = $this->load->view('includes/user/navbar', NULL, TRUE);

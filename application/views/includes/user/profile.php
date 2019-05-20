@@ -76,30 +76,30 @@
                                 <td>
                                 </td>
                                 <td class="text-left">
-                                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#detailsModal">
-                                        Details
-                                    </button>
-                                    <!-- Modal Edit -->
-                                  <div class="modal fade" id="detailsModal" tabindex="-1" role="dialog" aria-labelledby="detailsModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                      <div class="modal-content">
-                                        <div class="modal-header">
-                                          <h5 class="modal-title" id="detailsModalLabel">Details</h5>
-                                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                          </button>
-                                        </div>
-                                        <div class="modal-body">
-                                          ...
-                                        </div>
-                                        <div class="modal-footer">
-                                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-
-                                        </div>
-                                      </div>
-                                    </div>
+                                <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#detailsModal<?= $orders[$i]["orderID"]; ?>" aria-expanded="false" aria-controls="details">
+                                    Details
+                                </button>
                                   </div>
-                                  </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="7" class="collapse" id="detailsModal<?= $orders[$i]["orderID"]; ?>">
+                                <table class="table table-striped">
+                                    <thead>
+                                    <th><h4>Orders</h4></th>
+                                    <th><h4>Quantity</h4></th>
+                                    </thead>
+                                    <tbody>
+                                    <?php foreach($orders as $od) {?>
+                                        <?php if($od["orderID"] == $orders[$i]["orderID"]) { ?>
+                                        <tr>
+                                            <td><?= $od["productName"]; ?></td>
+                                            <td><?= $od["qty"]; ?></td>
+                                        </tr>
+                                        <?php } ?>
+                                    <?php } ?>
+                                    </tbody>
+                                </table>
                                 </td>
                             </tr>
                         </tbody>
