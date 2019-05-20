@@ -7,7 +7,7 @@ class Dashboard extends Login {
     public function __construct(){
         parent::__construct();
     }
-    
+
     public function index(){
         $this->load->model('Admin_model');
 

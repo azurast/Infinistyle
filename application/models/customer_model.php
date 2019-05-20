@@ -8,7 +8,17 @@ class Customer_model extends CI_Model {
 
         return $result->result_array();
     }
-    
+
+    public function display($table,$where){
+        return $this->db->get_where($table,$where);
+    }
+
+    public function get_order_history($currentcustomer){
+        $query = "SELECT * FROM orders WHERE customerID = $currentcustomer";
+        $result = $this->db->query($query);
+        return $result->result_array();
+    }
+
     public function get_customer($data){
         $condition = "username =" . "'" . $data['username'] . "'";
         $this->db->select('*');
@@ -20,7 +30,7 @@ class Customer_model extends CI_Model {
 
         if ($query->num_rows() == 0) {
             return false;
-        } 
+        }
         else {
             return $query->row();
         }

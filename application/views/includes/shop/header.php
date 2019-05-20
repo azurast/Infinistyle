@@ -10,27 +10,27 @@
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item"><a class="nav-link" href="#"><span class="nav-link-inner--text text-white font-weight-bold">Home</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="#"><span class="nav-link-inner--text text-white font-weight-bold">About Us</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="<?php echo base_url('home/sign_up') ?>"><span class="nav-link-inner--text text-success font-weight-bold">Sign Up</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="<?php echo base_url('home/sign_in') ?>"><span class="nav-link-inner--text text-warning font-weight-bold">Sign In</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="<?php echo base_url('user/register') ?>"><span class="nav-link-inner--text text-success font-weight-bold">Sign Up</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="<?php echo base_url('user/login') ?>"><span class="nav-link-inner--text text-warning font-weight-bold">Sign In</span></a></li>
                 </ul>
             </div>
         </div>
     </nav>
     <ul class="nav justify-content-center mt-3 mb-3">
       <li class="nav-item">
-        <a class="nav-link text-white" href="#">Tops</a>
+        <a class="nav-link text-white" href="<?php echo base_url('shop/collections/tops');?>">Tops</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-white" href="#">Bottoms</a>
+        <a class="nav-link text-white" href="<?php echo base_url('shop/collections/bottoms');?>">Bottoms</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-white" href="#">Dresses</a>
+        <a class="nav-link text-white" href="<?php echo base_url('shop/collections/dress');?>">Dresses</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-white" href="#">Jumpsuits</a>
+        <a class="nav-link text-white" href="<?php echo base_url('shop/collections/jumpsuit');?>">Jumpsuits</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-white" href="#">Accessories</a>
+        <a class="nav-link text-white" href="<?php echo base_url('shop/collections/accesories');?>">Accessories</a>
       </li>
     </ul>
     <!-- Content -->

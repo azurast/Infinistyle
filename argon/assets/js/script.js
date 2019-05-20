@@ -3,7 +3,7 @@ $(document).ready(function () {
     $(".add").on("click", function () {
         $(".modal-title").html("Add");
         $(".change").html("Add");
-        $("#image").hide();
+        $("#productImage").hide();
 
         $("#productId").val('');
         $("#productName").val('');
@@ -40,6 +40,7 @@ $(document).ready(function () {
                     $("#productCategory").val(result.productCategory);
                     $("#productStock").val(result.productStock);
                     $("#productDescription").val(result.productDescription);
+                    $("#productImage").attr("src","http://localhost/Infinistyle/images/" + result.productImage);
                 }
             });
         }
@@ -189,7 +190,7 @@ $(document).ready(function () {
             let id = $("#orderID").val();
             let status = $("#status").val();
             $.ajax({
-                url: "http://localhost/Infinistyle/admin/admin/edit_action",
+                url: "http://localhost/Infinistyle/admin/orders/edit_action",
                 method: "post",
                 data: {
                     title: "orders",

@@ -7,7 +7,7 @@
                            <div class="col-lg-3 order-lg-2">
                                <div class="card-profile-image">
                                    <a href="#">
-                                       <img src="argon/assets/img/theme/team-4-800x800.jpg" class="rounded-circle">
+                                       <img src="<?php echo base_url('argon\assets\img\adminphoto.jpg');?>" class="rounded-circle">
                                    </a>
                                </div>
                            </div>
@@ -26,14 +26,15 @@
                        </div>
                        <div class="text-center mt-5">
                            <h3>
-                               Jessica Jones
+                               <?php echo ($this->session->userdata('logged_in_infinistyle')['username']);?>
                            </h3>
-                           <div class="h5 font-weight-300">
-                               <i class="ni location_pin mr-2"></i>Bucharest, Romania
+                           <div class="h5 mt-4 mb-4">
+                               <i class="ni business_briefcase-24 mr-2"></i><?php echo ($this->session->userdata('logged_in_infinistyle')['role']);?>
                            </div>
                            <div class="h5 mt-4 mb-4">
-                               <i class="ni business_briefcase-24 mr-2"></i>Administartor
+                               <i class="ni business_briefcase-24 mr-2"></i><?php echo $admin[0]->email ?>
                            </div>
+
                            <!--<hr class="my-4" />
                            <p>Ryan — the name taken by Melbourne-raised, Brooklyn-based Nick Murphy — writes, performs and records all of his own music.</p>
                            <a href="#">Show more</a>-->

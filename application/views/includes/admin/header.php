@@ -11,10 +11,10 @@
           <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <div class="media align-items-center">
               <span class="avatar avatar-sm rounded-circle">
-                <img alt="Image placeholder" src="argon/assets/img/theme/team-4-800x800.jpg">
+                <img alt="Image placeholder" src="<?php echo base_url('argon\assets\img\adminphoto.jpg');?>">
               </span>
               <div class="media-body ml-2 d-none d-lg-block">
-                <span class="mb-0 text-sm  font-weight-bold">Jessica Jones</span>
+                <span class="mb-0 text-sm  font-weight-bold"><?php echo "Hello, ".($this->session->userdata('logged_in_infinistyle')['username']);?></span>
               </div>
             </div>
           </a>
@@ -22,13 +22,9 @@
             <div class=" dropdown-header noti-title">
               <h6 class="text-overflow m-0">Welcome!</h6>
             </div>
-            <a href="../examples/profile.html" class="dropdown-item">
+            <a href="<?php echo base_url('admin/profile')?>" class="dropdown-item">
               <i class="ni ni-single-02"></i>
               <span>My profile</span>
-            </a>
-            <a href="../examples/profile.html" class="dropdown-item">
-              <i class="ni ni-settings-gear-65"></i>
-              <span>Settings</span>
             </a>
             <div class="dropdown-divider"></div>
             <a href="<?php echo base_url('user/login/logout')?>" class="dropdown-item">
@@ -40,35 +36,3 @@
       </ul>
     </div>
   </nav>
-  <!-- Header -->
-  <div class="header bg-gradient-primary pb-8 pt-5 pt-md-8">
-    <div class="container-fluid">
-      <div class="header-body">
-        <!-- Card stats -->
-        <div class="row">
-          <div class="col-xl-12 col-lg-12">
-            <div class="card card-stats mb-4 mb-xl-0">
-              <div class="card-body">
-                <div class="row">
-                  <div class="col">
-                    <h5 class="card-title text-uppercase text-muted mb-0">Goods</h5>
-                    <!--Bisa ga ya count banyak transaksi?-->
-                    <span class="h2 font-weight-bold mb-0">10</span>
-                  </div>
-                  <div class="col-auto">
-                    <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
-                      <i class="fas fa-chart-bar"></i>
-                    </div>
-                  </div>
-                </div>
-                <!--<p class="mt-3 mb-0 text-muted text-sm">
-                  <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
-                  <span class="text-nowrap">Since last month</span>
-              </p>-->
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>

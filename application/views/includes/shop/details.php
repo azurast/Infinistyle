@@ -16,8 +16,6 @@
         border : none;
     }
 
-
-
 	.content{
 		margin-top:5%;
 		margin-bottom:5%;
@@ -32,7 +30,7 @@
           <div class="col-md-6">
             <div class="card-header">
                 <div class="card-img-bottom text-dark text-center">
-                    <img src="argon/assets/img/pj.jpg" alt="product image here">
+                    <img src="<?php echo base_url('images/'. $product[0]->productImage); ?>" style="width: 100%; height: auto; max-height: 500px; max-width: 500px;" alt="product image here">
                 </div>
             </div>
           </div>
@@ -41,7 +39,7 @@
             <h4 class="card-title mt-6 text-center"><?php echo $product[0]->productName?></h4>
             <p class="card-text text-center"><?php echo $product[0]->productDescription?></p>
             <p class="card-text text-center"><?php echo $product[0]->productCategory?></p>
-            <p class="card-text text-center"><?php echo "Rp".$product[0]->productPrice?></p>
+            <p class="card-text text-center"><?php echo "Rp".number_format($product[0]->productPrice)?></p>
             <center>
                 <button class="btn btn-icon btn-3 btn-primary" type="button">
                     <span class="btn-inner--icon"><i class="ni ni-fat-add"></i></span>

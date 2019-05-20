@@ -21,14 +21,15 @@
                         </div>
                     </div>
                     <div class="text-center" style="margin-top:16%;">
-                        <h3>Jessica Jones</h3>
-                        <div class="h6 font-weight-300"><i class="ni location_pin mr-2"></i>Gading Serpong</div>
-                        <div class="h6 mt-4"><i class="ni business_briefcase-24 mr-2"></i>Customer</div>
+                        <h3><?php echo $customer[0]->fullName; ?></h3>
                     </div>
                     <div class="mt-5 py-5 border-top text-center">
                         <div class="row justify-content-center">
                             <div class="col-lg-9">
-                                <p>Customer details</p>
+                                <h4>Address</h4>
+                                <p><?php echo $customer[0]->address; ?></p>
+                                <h4>Phone</h4>
+                                <p><?php echo $customer[0]->phone; ?></p>
                             </div>
                         </div>
                     </div>
@@ -57,16 +58,17 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <?php for($i=0; $i<count($orders); $i++) {?>
                             <tr>
                                 <th scope="row">
-                                    1
+                                    <?= $i+1; ?>
                                 </th>
                                 <td>
-                                    TR001
+                                    <?= $orders[$i]["orderID"]; ?>
                                 </td>
                                 <td>
                                     <span class="badge badge-dot mr-4">
-                                        <i class="bg-warning"></i> pending
+                                        </i> <?= $orders[$i]["orderStatus"]; ?>
                                     </span>
                                 </td>
                                 <td>
@@ -101,6 +103,7 @@
                                 </td>
                             </tr>
                         </tbody>
+                    <?php }?>
                     </table>
                 </div>
                 <div class="card-footer py-4">
