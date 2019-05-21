@@ -60,9 +60,13 @@
                                             </div>
                                         </td>
                                         <td class="text-left">
-                                            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#detailsModal">
+                                        <?php echo form_open('customer/cart/delete_cart_detail'); ?>
+                                            <input type="hidden" name="productID" value="<?php echo $res[$i]['productID']?>" />
+                                            <input type="hidden" name="cartID" value="<?php echo $res[$i]['cartID']?>" />
+                                            <button type="submit" class="btn btn-warning" data-toggle="modal" data-target="#detailsModal">
                                                 Delete
                                             </button>
+                                        <?php echo form_close(); ?>
                                             <!-- Modal Edit -->
                                             <div class="modal fade" id="detailsModal" tabindex="-1" role="dialog" aria-labelledby="detailsModalLabel" aria-hidden="true">
                                                 <div class="modal-dialog modal-dialog-centered" role="document">
@@ -120,7 +124,7 @@
         <!--Checkout-->
         <div class="row justify-content-align-center">
             <div class="ml-auto mt-5 mr-3">
-                <button class="btn btn-warning" type="button" name="button">Checkout</button>
+                <button class="btn btn-warning" type="button" name="button" onclick="window.location.href='<?php echo base_url('customer/payment/add_cart_to_order_details');?>'">Checkout</button>
             </div>
         </div>
         <!--Modal-->

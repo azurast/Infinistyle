@@ -9,9 +9,12 @@ class ShoppingCartDetails_model extends CI_Model {
         return $result->result_array();
     }
 
-    public function get_shoppingCartDetails_per_cartID($data){
+    public function get_shoppingCartDetails_per_cartID_view($data){
         $query = 
-        "SELECT p.productName as name, 
+        "SELECT 
+                cd.cartID as cartID,
+                cd.productID as productID,
+                p.productName as name, 
                 p.productImage as image,
                 p.productPrice as price,
                 cd.qty as quantity 
@@ -24,6 +27,17 @@ class ShoppingCartDetails_model extends CI_Model {
         return $result->result_array();
     }
 
+    public function get_shoppingCartDetails_per_cartID($data){
+        $query = 
+        "SELECT * FROM shoppingcartdetails
+        WHERE cartID =" . "'" . $data['cartID'] . "'";
+
+        $result = $this->db->query($query);
+
+        return $result->result_array();
+    }
+
+
     
     public function insert_shoppingCartDetails($data){
         $insert = $this->db->insert('shoppingcartdetails',$data);
@@ -35,9 +49,12 @@ class ShoppingCartDetails_model extends CI_Model {
         $this->db->update('shoppingcarts',$item,"cartID = ".$item["cartID"]);
     }
 
-    public function delete_shoppingCart($item){
-      $this->db->where('cartID', $item['cartID']);
-      $this->db->delete('shoppingcarts');
+    public function delete_shoppingCartDetail($data){
+        $this->db->delete('shoppingcartdetails', array(
+            'cartID' => $data['cartID'],
+            'productID'=> $data['productID']
+        ));
+        return $this->db->error();
     }
 }
 ?>

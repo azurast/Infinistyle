@@ -14,7 +14,11 @@
         <?php echo $js; ?>
         <script>
             $(document).ready(function(){
-                console.log('ha')
+                let response = {
+                    code : <?php echo $response['code'];?>,
+                    message : `<?php echo $response['message'];?>`,
+                };
+                response && alert(response.message);
             })
         </script>
     </body>

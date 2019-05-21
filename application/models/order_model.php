@@ -18,6 +18,8 @@ class Order_model extends CI_Model {
 
     public function insert_order($item){
         $this->db->insert('orders',$item);
+        $response =  $this->db->error();
+        return $response;
     }
 
     public function update_order($item){
