@@ -7,9 +7,9 @@
     </head>
     <body>
         <?php
-            echo $navbar;
+            echo $header;
             echo $cart;
-            echo $footer;
+            // echo $footer;
         ?>
         <?php echo $js; ?>
         <script>

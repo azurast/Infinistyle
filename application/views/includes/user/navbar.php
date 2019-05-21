@@ -1,7 +1,7 @@
 <!-- Navbar -->
 <nav id="navbar-main" class="navbar navbar-horizontal navbar-transparent navbar-main navbar-expand-lg navbar-light bg-gradient-primary">
     <!-- <div class="container"> -->
-        <a class="navbar-brand" href="../pages/dashboards/dashboard.html">
+        <a class="navbar-brand" href="<?php echo site_url('shop/collections')?>">
             <img src="<?php echo base_url('argon\assets\img\logo\Logo.png'); ?>">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -11,8 +11,8 @@
             <div class="navbar-collapse-header">
                 <div class="row">
                     <div class="col-6 collapse-brand">
-                        <a href="../../pages/dashboards/dashboard.html">
-                            <img src="../../assets/img/brand/blue.png">
+                        <a href="<?php site_url('shop/collections')?>">
+                            <img src="<?php echo base_url('argon\assets\img\logo\Logo.png'); ?>">
                         </a>
                     </div>
                     <div class="col-6 collapse-close">

@@ -63,20 +63,20 @@ class Payment extends Cart{
         // kalo berhasil, orders response berisi
         // Array ( [code] => 0 [message] => )
 
-        
+
         if($orders_response['code']!= 0) {
           // TODO : add error handling "Failed to checkout. please try again." atau semacamnya
         }
 
         $orderID = $this->db->insert_id();
-        
+
         return $orderID;
       }
     }
 
     public function add_cart_to_order_details(){
 
-      //YANG DILAKUIN : 
+      //YANG DILAKUIN :
       // >> cari cartIdnya dulu
       // >> dapetin cartdetails yang mau ditambahin ke order details
       // >> generate orderid
@@ -88,9 +88,9 @@ class Payment extends Cart{
 
       $this->load->model('shoppingCartDetails_model');
       $cart_details_response = $this->shoppingCartDetails_model->get_shoppingCartDetails_per_cartID($cart);
-      
+
       $orderID = $this->generate_order_id();
-      
+
       //ERROR HANDLING KALO ORDERID GAGAL DIGENERATE
       if($orderID == false){
           $error = array(
@@ -104,7 +104,7 @@ class Payment extends Cart{
       $this->load->model('product_model');
       foreach($cart_details_response as $product){
         $price_response = $this->product_model->get_product_price($product['productID']);
-       
+
         $data = array(
           "orderID" => $orderID,
           "productID" => $product['productID'],
@@ -126,7 +126,7 @@ class Payment extends Cart{
             //TODO : ganti error handling nya jadi lebih proper
             //ambil nama barang
             echo 'adding __productName__ to checkout fails!';
-        }        
+        }
       }
 
       if($order_details_count == count($cart_details_response)){
@@ -135,13 +135,14 @@ class Payment extends Cart{
           "code" => 200,
           "message" => "Checkout telah Berhasil!"
         );
+        redirect('shop/collections');
       }
       else {
         $response = array(
           "code" => 400,
           "message" => "terjadi kesalahan ketika melakukan checkout barang"
         );
-      }  
+      }
     }
 }
 
