@@ -10,7 +10,7 @@ class Order_model extends CI_Model {
     }
 
     public function get_five_order(){
-        $query = "SELECT * FROM orders ORDER BY orderId LIMIT 5";
+        $query = "SELECT * FROM orders ORDER BY orderId  DESC LIMIT 5";
         $result = $this->db->query($query);
 
         return $result->result_array();
