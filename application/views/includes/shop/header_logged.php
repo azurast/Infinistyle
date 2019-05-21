@@ -1,7 +1,7 @@
 <!-- Navbar -->
 <nav id="navbar-main" class="navbar navbar-horizontal navbar-transparent navbar-main navbar-expand-lg navbar-light bg-gradient-default">
     <!-- <div class="container"> -->
-        <a class="navbar-brand" href="../pages/dashboards/dashboard.html">
+        <a class="navbar-brand" href="<?= base_url('shop/collections');?>">
             <img src="<?php echo base_url('argon\assets\img\logo\Logo.png'); ?>">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -30,7 +30,7 @@
                     </button>
                 </li>
                 <li class="nav-item">
-                    <a href="../../pages/examples/register.html" class="nav-link">
+                    <a href="<?php echo site_url('user/login/logout')?>" class="nav-link">
                         <span class="nav-link-inner--text btn btn-info font-weight-bold">Logout</span>
                     </a>
                 </li>

@@ -17,7 +17,6 @@ class Collections extends CI_Controller{
         $this->load->model('product_model');
         
         $params = $this->session->flashdata('collections_param');
-        $params = $this->session->flashdata('logout_success');
         $data['message'] = $params != false ? $params : null; 
         $card['result'] = $this->product_model->get_all_product();
         $data['css'] = $this->load->view('includes/css.php', NULL, TRUE);
