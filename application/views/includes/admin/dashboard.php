@@ -5,12 +5,12 @@
     <div class="container-fluid mt--7">
       <div class="row">
         <div class="col-xl-12">
-          <div class="card bg-gradient-default shadow">
+          <div class="card shadow">
             <div class="card-header bg-transparent">
               <div class="row align-items-center">
                 <div class="col-md-10">
-                  <h6 class="text-uppercase text-light ls-1 mb-1">Overview</h6>
-                  <h2 class="text-white mb-0">Transaction List</h2>
+                  <h6 class="text-uppercase ls-1 mb-1">Overview</h6>
+                  <h2 class="mb-0">Transaction List</h2>
                 </div>
                 <div class="col-md-2 text-right">
                   <a href="<?php echo base_url('admin/orders') ?>" class="btn btn-sm btn-primary">See all</a>
@@ -22,52 +22,51 @@
             </div>
             <div class="card-body">
               <!-- Orders Review -->
-              <div class="chart">
-                <div class="table-responsive">
-                  <table class="table align-items-center table-flush">
-                    <thead class="thead-light">
-                      <tr>
-                        <th scope="col">Transaction ID</th>
-                        <th scope="col">Status</th>
-                        <th scope="col">Customer ID</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <?php for($i=0; $i < count($orders); $i++) { ?>
-                      <tr>
-                        <td><?= $orders[$i]["orderID"]; ?></td>
-                        <td>
-                          <span class="badge badge-dot mr-4">
-                            <i class="bg-warning"></i> <?= $orders[$i]["orderStatus"]; ?>
-                          </span>
-                        </td>
-                        <td><?= $orders[$i]["customerID"]; ?></td>
-                      </tr>
-                      <tr>
-                        <td colspan="7" class="collapse" id="details<?= $orders[$i]["orderID"]; ?>">
-                          <table class="table table-striped">
-                            <thead>
-                              <th><h4>Orders</h4></th>
-                              <th><h4>Quantity</h4></th>
-                            </thead>
-                            <tbody>
-                              <?php foreach($orderDetails as $od) {?>
-                                <?php if($od["orderID"] == $orders[$i]["orderID"]) { ?>
-                                  <tr>
-                                    <td><?= $od["productName"]; ?></td>
-                                    <td><?= $od["qty"]; ?></td>
-                                  </tr>
-                                <?php } ?>
+              <div class="table-responsive">
+                <table class="table align-items-center table-flush">
+                  <thead class="thead-light">
+                    <tr>
+                      <th scope="col">Transaction ID</th>
+                      <th scope="col">Status</th>
+                      <th scope="col">Customer ID</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <?php for($i=0; $i < count($orders); $i++) { ?>
+                    <tr>
+                      <td><?= $orders[$i]["orderID"]; ?></td>
+                      <td>
+                        <span class="badge badge-dot mr-4">
+                          <i class="bg-warning"></i> <?= $orders[$i]["orderStatus"]; ?>
+                        </span>
+                      </td>
+                      <td><?= $orders[$i]["customerID"]; ?></td>
+                    </tr>
+                    <tr>
+                      <td colspan="7" class="collapse" id="details<?= $orders[$i]["orderID"]; ?>">
+                        <table class="table table-striped">
+                          <thead>
+                            <th><h4>Orders</h4></th>
+                            <th><h4>Quantity</h4></th>
+                          </thead>
+                          <tbody>
+                            <?php foreach($orderDetails as $od) {?>
+                              <?php if($od["orderID"] == $orders[$i]["orderID"]) { ?>
+                                <tr>
+                                  <td><?= $od["productName"]; ?></td>
+                                  <td><?= $od["qty"]; ?></td>
+                                </tr>
                               <?php } ?>
-                            </tbody>
-                          </table>
-                        </td>
-                      </tr>
-                      <?php } ?>
-                    </tbody>
-                  </table>
-                </div>
+                            <?php } ?>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                    <?php } ?>
+                  </tbody>
+                </table>
               </div>
+            
             </div>
           </div>
         </div>
