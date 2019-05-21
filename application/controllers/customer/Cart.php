@@ -12,8 +12,11 @@ class Cart extends Login{
         $this->check_is_login('customer');
         $cart['cartID'] = $this->get_cart_id();
 
+        $response = $this->session->flashdata('cart_response');
+        $data['response'] = $response != false ? $response : null; 
+    
         $this->load->model('shoppingCartDetails_model');
-        $cart_response = $this->shoppingCartDetails_model->get_shoppingCartDetails_per_cartID($cart);
+        $cart_response = $this->shoppingCartDetails_model->get_shoppingCartDetails_per_cartID_view($cart);
 
         $t['res'] = $cart_response;
         $data['css'] = $this->load->view('includes/css.php', NULL, TRUE);
@@ -78,7 +81,8 @@ class Cart extends Login{
                     "code" => 2024,
                     "message" => "Cart tidak ditemukan."
                 );
-                return  $error;
+                $this->session->set_flashdata('cart_response', $error);
+                redirect('customer/cart');
             }
 
             $add_cart_detail_params = array(
@@ -92,13 +96,60 @@ class Cart extends Login{
             $result = $this->ShoppingCartDetails_model->insert_shoppingCartDetails($add_cart_detail_params);
 
             if($result['code'] == 0){ // RESULT OK
-                redirect('customer/cart');
+                $response = array(
+                    "code" => 200,
+                    "message" => "Add product to cart success!"
+                );
             }
             else {
-                alert('add to cart fails');
+                $response = array(
+                    "code" => 400,
+                    "message" => "Failed add product to cart. Please try again."
+                );
             }
+            $this->session->set_flashdata('cart_response', $response);
+            redirect('customer/cart');
+        }
+    }
+
+    public function delete_cart_detail(){
+        $this->form_validation->set_rules('cartID', 'cartID', 'trim|required');
+        $this->form_validation->set_rules('productID', 'productID', 'trim|required');
+
+        if ($this->form_validation->run() == FALSE) {
+            // TODO error handling,
+            $error = array(
+                "code" => 400,
+                "message" => "Failed delete product to cart. Please try again."
+            );
+            $this->session->set_flashdata('cart_response', $error);
+            redirect('customer/cart');
+        }
+        else {
+            $delete_params = array(
+                "cartID" => $this->input->post('cartID'),
+                "productID" => $this->input->post('productID'),
+            );
+            
+            $this->load->model('shoppingCartDetails_model');
+            $result = $this->shoppingCartDetails_model->delete_shoppingCartDetail($delete_params);
+            
+            if($result['code'] == 0){
+                $response = array(
+                    code => 200,
+                    message => "Delete products success!"
+                );
+            }
+            else{
+                $response = array(
+                    code => 400,
+                    message => "Delete products failed. Please try again."
+                );
+            }
+            $this->session->set_flashdata('cart_response', $response);
+            redirect('customer/cart');
         }
     }
 }
 
- ?>
+?>

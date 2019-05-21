@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: May 20, 2019 at 05:48 PM
+-- Generation Time: May 21, 2019 at 03:12 AM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.1
 
@@ -78,8 +78,27 @@ INSERT INTO `customers` (`customerID`, `fullName`, `email`, `username`, `passwor
 CREATE TABLE `orderdetails` (
   `orderID` int(11) NOT NULL,
   `productID` int(11) NOT NULL,
-  `qty` int(11) NOT NULL
+  `qty` int(11) NOT NULL,
+  `price` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `orderdetails`
+--
+
+INSERT INTO `orderdetails` (`orderID`, `productID`, `qty`, `price`) VALUES
+(12, 1, 3, 70000),
+(12, 1, 3, 70000),
+(12, 1, 3, 70000),
+(12, 1, 3, 70000),
+(12, 1, 3, 70000),
+(12, 1, 3, 70000),
+(12, 2, 2, 65000),
+(12, 1, 1, 70000),
+(12, 3, 1, 55000),
+(13, 2, 1, 65000),
+(13, 1, 1, 70000),
+(15, 1, 1, 70000);
 
 -- --------------------------------------------------------
 
@@ -93,6 +112,28 @@ CREATE TABLE `orders` (
   `orderStatus` varchar(50) NOT NULL,
   `customerID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`orderID`, `orderDate`, `orderStatus`, `customerID`) VALUES
+(1, '2019-05-21', 'on process', 5),
+(2, '2019-05-21', 'on process', 5),
+(3, '2019-05-21', 'on process', 5),
+(4, '2019-05-21', 'on process', 5),
+(5, '2019-05-21', 'on process', 5),
+(6, '2019-05-21', 'on process', 5),
+(7, '2019-05-21', 'on process', 5),
+(8, '2019-05-21', 'on process', 5),
+(9, '2019-05-21', 'on process', 5),
+(10, '2019-05-21', 'on process', 5),
+(11, '2019-05-21', 'on process', 5),
+(12, '2019-05-21', 'on process', 5),
+(13, '2019-05-21', 'on process', 5),
+(14, '2019-05-21', 'on process', 5),
+(15, '2019-05-21', 'on process', 5),
+(16, '2019-05-21', 'on process', 5);
 
 -- --------------------------------------------------------
 
@@ -350,12 +391,7 @@ CREATE TABLE `shoppingcartdetails` (
 --
 
 INSERT INTO `shoppingcartdetails` (`cartID`, `productID`, `qty`) VALUES
-(6, 1, 3),
-(6, 1, 3),
-(6, 1, 3),
-(6, 1, 3),
-(6, 1, 3),
-(6, 1, 3);
+(6, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -440,7 +476,7 @@ ALTER TABLE `customers`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `orderID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `orderID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `products`

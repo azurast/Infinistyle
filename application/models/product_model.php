@@ -19,6 +19,24 @@ class product_model extends CI_Model {
         return $result->result_array();
     }
 
+    public function get_product_price($productId){
+        $query = 
+        "SELECT productPrice as price FROM products
+         WHERE productID =" . "'" . $productId . "'";
+        $result = $this->db->query($query);
+
+        return $result->row();
+    }
+
+    public function get_product_name($productId){
+        $query = 
+        "SELECT productName as name FROM products
+         WHERE productID =" . "'" . $productId . "'";
+        $result = $this->db->query($query);
+
+        return $result->row();
+    }
+
     public function display($table,$where){
         
         return $this->db->get_where($table,$where);
