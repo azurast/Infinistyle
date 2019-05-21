@@ -124,12 +124,47 @@
         <!--Checkout-->
         <div class="row justify-content-align-center">
             <div class="ml-auto mt-5 mr-3">
-                <button class="btn btn-warning" type="button" name="button" onclick="window.location.href='<?php echo base_url('customer/payment/add_cart_to_order_details');?>'">Checkout</button>
+                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modalCheckout">Checkout</button>
+                <!-- <button class="btn btn-warning" type="button" name="button" onclick="window.location.href='<?php /*echo base_url('customer/payment/add_cart_to_order_details');*/?>'">Checkout</button> -->
             </div>
         </div>
         <!--Modal-->
         <div class="row">
             <!-- Modal -->
+            <!-- Modal Checkout-->
+            <div class="modal fade" id="modalCheckout" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="checkout">Checkout</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+          		  <h4>Shipping Method : REG</h4>
+                  <h4>Shipping Fee : Free</h4>
+                </div>
+                <div class="modal-footer">
+          			<button type="button" class="btn btn-primary center-block" data-dismiss="modal"data-toggle="modal" data-target="#modalSuccess">Confirm</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Modal  Success-->
+            <div class="modal fade" id="modalSuccess" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-body">
+          			<h2>Success !</h2><br><br>
+          		  <p>Order is confirmed. You will receive an email notification when your order has been shipped.</p>
+          		  <button type="button" class="btn btnms btn-default center-block" data-dismiss="modal" onclick="window.location.href='<?php echo base_url('customer/payment/add_cart_to_order_details');?>'">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
             <div class="modal fade" id="editProfileModal" tabindex="-1" role="dialog" aria-labelledby="editProfileLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
