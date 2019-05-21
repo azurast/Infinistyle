@@ -48,7 +48,6 @@
                 <th scope="col">Name</th>
                 <th scope="col">Contact</th>
                 <th scope="col">Address</th>
-                <th scope="col">Image</th>
                 <th scope="col">Actions</th>
               </tr>
             </thead>
@@ -60,11 +59,6 @@
                 <td><?= $customer[$i]["fullName"]; ?></td>
                 <td><?= $customer[$i]["phone"]; ?></td>
                 <td><?= $customer[$i]["address"]; ?></td>
-                <td>
-                    <a href="#" class="avatar rounded-circle mr-3">
-                  <img alt="Image placeholder" src="<?= base_url('argon/assets/img/'); ?>customer.jpg">
-                </a>
-                </td>
                 <td class="text-left">
                     <button type="button" class="btn btn-info edit" data-edit="<?= $customer[$i]["customerID"]; ?>" data-toggle="modal" data-target="#editModal">
                         Edit
